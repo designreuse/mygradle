@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <constant name="struts.enable.DynamicMethodInvocation" value="true"></constant>
+    <!--设置开发模式，默认关闭。如果设置true：将提供更多提示信息，自动加载文件-->
+    <constant name="struts.devMode" value="true"></constant>
+    <!--
+    name:单纯的给包起一个名字,不要与其他包名重复
+        namespace: 为action访问加上一层或多层路径
+        extends: 继承一个其他包,目的是引入其他包的配置
+        abstract: 声明包是抽象的.意思就是让别的包来继承,声明为抽象的包中不能含有Action配置
+    -->
+    <package name="hello" namespace="/user" extends="struts-default">
+        <!--
+            name: 为我们的action类加上一个标识,在访问时填入name名称.就可以找到action
+            class: action完整类名
+            method:处理的方法
+         -->
+        <action name="index" class="com.git.action.HelloAction" method="execute">
+            <!-- name:返回结果的标识,用于找到结果路径
+                 type: 可以决定跳转到结果的方式=> 转发,重定向.....
+             -->
+
+            <result name="success" type="dispatcher">/index.jsp</result>
+        </action>
+
+    </package>
+
+</struts>
