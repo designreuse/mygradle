@@ -20,7 +20,7 @@ public class MyServlet extends HttpServlet {
         System.out.println("doGet invoked ---------");
         resp.setContentType("text/html;charset=utf-8");
         PrintWriter writer = resp.getWriter();
-        writer.write("hello MyServlet -- 你好");
+        writer.write("hello MyServlet -- 你好吗？----");
         writer.flush();
 
 
