@@ -47,9 +47,6 @@ gretty{
 }
 
 
-
-
-
 dependencies {
     compile 'org.springframework:spring-context:4.2.9.RELEASE'
 
