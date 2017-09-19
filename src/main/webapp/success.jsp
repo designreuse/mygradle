@@ -13,9 +13,8 @@
   </head>
   <body>
 
-  <h1 style="color: red"> Operation List</h1>
-  <s:a href="save.jsp"> Save User</s:a> <br/> <br/>
-  <s:a href="listUser.action">List Users</s:a>
+  <h1 style="color: red"> 添加成功</h1>
+
 
 
   </body>
