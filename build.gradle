@@ -63,6 +63,8 @@ dependencies {
 
     compile 'javax.el:el-api:2.2'
 
+    compile 'jstl:jstl:1.2'
+    compile 'taglibs:standard:1.1.2'
 
     compile 'io.netty:netty-all:4.1.13.Final'
     testCompile group: 'junit', name: 'junit', version: '4.11'

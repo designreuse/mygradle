@@ -31,6 +31,7 @@
         <action name="user_*" class="com.git.action.SaveUserAction" method="{1}">
             <result name="input">/save.jsp</result>
             <result name="success">/success.jsp</result>
+            <result name="list">/list.jsp</result>
         </action>
 
 
