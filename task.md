@@ -179,6 +179,11 @@ public INputstream getinputstream
 userserviceimpl
 http://poi.apache.org/spreadsheet/how-to.html#sxssf
 
+把文件放到内存
+
+
+
+
 action
 <type success type=stream>
 
@@ -192,5 +197,7 @@ public InputStream getDownloadFile() {
 return this.server.getInputstram
 }
 
+
 ## validation
 * SaveUserAction-user_save-validation.xml  打包时没有放到class 中
+
