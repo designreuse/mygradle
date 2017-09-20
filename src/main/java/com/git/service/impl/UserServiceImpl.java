@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 import java.io.*;
 import java.util.List;
+import java.util.concurrent.Executors;
 
 /**
  * Created by lixueqin on 2017/9/19.
@@ -120,6 +121,16 @@ public class UserServiceImpl implements UserService {
             e.printStackTrace();
         }
 
+//        Executors.newSingleThreadExecutor().submit(() ->{
+//            try {
+//                Thread.sleep(15000);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//            file.delete();
+//            System.out.println("文件已删除-------");
+//
+//        });
         return is;
     }
 
