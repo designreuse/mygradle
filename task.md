@@ -160,3 +160,34 @@ age=\u5e74\u9f84
 
 ```
 ------------------2017.09.19---------------------
+
+valid
+delete
+type redirect
+return del()
+if(confirm(""")){
+}
+
+update
+updatePUser
+
+
+xls
+userservice
+public INputstream getinputstream
+
+userserviceimpl
+http://poi.apache.org/spreadsheet/how-to.html#sxssf
+
+action
+<type success type=stream>
+
+<param name = "contentType" >application/vnd.ms-excel</>
+<param name = "contentDisposition"> filename="allusers.xls"</>
+<param name="inputName">downloadFile</>
+
+</type>
+
+public InputStream getDownloadFile() {
+return this.server.getInputstram
+}

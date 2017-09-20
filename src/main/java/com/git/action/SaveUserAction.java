@@ -4,17 +4,21 @@ import com.git.bean.User;
 import com.git.service.UserService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * Created by lixueqin on 2017/9/19.
  */
 @Controller
+@Scope("prototype")
 public class SaveUserAction extends ActionSupport {
 
     @Resource
@@ -48,6 +52,18 @@ public class SaveUserAction extends ActionSupport {
 
         return "success";
 
+    }
+
+    public void validateSave() {
+        if(StringUtils.isBlank(user.getFirstname())) {
+            addFieldError("first","请填写姓");
+        }
+        if(StringUtils.isBlank(user.getLastname())) {
+            addFieldError("last","请填写名");
+        }
+        if(Objects.isNull(user.getAge()) || user.getAge() <1 || user.getAge()>150) {
+            addFieldError("age","请填正确的年龄 1- 150岁");
+        }
     }
 
 

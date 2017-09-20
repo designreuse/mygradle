@@ -38,7 +38,7 @@
         <td>${user.firstname}</td>
         <td>${user.lastname}</td>
         <td>${user.age}</td>
-        <td><a href="">删除</a> | <a href="">修改</a> </td>
+        <td><a href="deleteUser?user.id=${user.id}">删除</a> | <a href="updatePUser?user.id=${user.id}">修改</a> </td>
     </tr>
     </c:forEach>
 </table>

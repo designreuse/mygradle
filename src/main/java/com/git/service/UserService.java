@@ -2,6 +2,7 @@ package com.git.service;
 
 import com.git.bean.User;
 
+import java.io.InputStream;
 import java.util.List;
 
 /**
@@ -17,5 +18,7 @@ public interface UserService {
     void update(User user);
 
     User findById(Integer id);
+
+    InputStream getInputStram();
 
 }
