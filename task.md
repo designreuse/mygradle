@@ -179,6 +179,11 @@ public INputstream getinputstream
 userserviceimpl
 http://poi.apache.org/spreadsheet/how-to.html#sxssf
 
+把文件放到内存
+
+
+
+
 action
 <type success type=stream>
 
@@ -191,3 +196,5 @@ action
 public InputStream getDownloadFile() {
 return this.server.getInputstram
 }
+
+
