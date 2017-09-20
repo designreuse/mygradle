@@ -28,16 +28,30 @@
             <result name="success" type="dispatcher">/index.jsp</result>
         </action>
 
-        <action name="user_*" class="com.git.action.SaveUserAction" method="{1}">
+        <action name="user_*" class="com.git.action.UserAction" method="{1}">
             <result name="input">/save.jsp</result>
             <result name="success" type="redirect">user_list</result>
             <result name="list">/list.jsp</result>
+            <result name="delete" type="redirect">user_list</result>
+
+
         </action>
 
-        <action name="save" class="com.git.action.SaveUserAction" method="save">
-            <result name="input">/save.jsp</result>
-            <result name="success" type="redirect">user_list</result>
-            <result name="list">/list.jsp</result>
+        <action name="user_detail" class="com.git.action.UserAction" method="detail">
+
+            <result name="show" >/detail.jsp</result>
+        </action>
+        <action name="user_update" class="com.git.action.UserAction" method="update">
+            <result name="input" >/detail.jsp</result>
+            <result name="update" type="redirect">user_list</result>
+        </action>
+
+        <action name="generatexls" class="com.git.action.GenerateAction" >
+            <result name="success" type="stream">
+                <param name="contentType">application/vnd.ms-excel</param>
+                <param name="contentDisposition">attachment;filename="allusers.xls"</param>
+                <param name="inputName">downloadFile</param>
+            </result>
         </action>
 
 

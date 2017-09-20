@@ -12,12 +12,13 @@
     <title>save User</title>
 </head>
 <body>
-<h1 style="color: red"> Save User</h1>
+<h1 style="color: red"> Update User</h1>
 
-<s:form action="user_save" namespace="/">
-    <s:textfield name="user.firstname" label="%{getText('firstname')}"></s:textfield>
-    <s:textfield name="user.lastname" label="%{getText('lastname')}"></s:textfield>
-    <s:textfield name="user.age"  label="%{getText('age')}" ></s:textfield>
+<s:form action="user_update" namespace="/">
+    <s:hidden name="user.id" value="%{user.id}"></s:hidden>
+    <s:textfield name="user.firstname" label="%{getText('firstname')}" value="%{user.firstname}"></s:textfield>
+    <s:textfield name="user.lastname" label="%{getText('lastname')}"  value="%{user.lastname}"></s:textfield>
+    <s:textfield name="user.age"  label="%{getText('age')}" value="%{user.age}"></s:textfield>
     <s:submit value="提交"></s:submit>
 
 </s:form>

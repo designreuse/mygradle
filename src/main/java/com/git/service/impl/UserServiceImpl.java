@@ -36,18 +36,24 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public void delete(User user) {
-
+        this.userDAO.removeUser(user);
     }
 
     @Override
+    @Transactional
     public void update(User user) {
+        userDAO.updateUser(user);
 
     }
 
     @Override
+    @Transactional
     public User findById(Integer id) {
-        return null;
+
+        User user =  userDAO.findUserById(id);
+        return user;
     }
 
     @Override
@@ -97,7 +103,8 @@ public class UserServiceImpl implements UserService {
 
         }
 
-        File file = new File("test.xls");
+
+        File file = new File("/Users/lihao/logs/test.xls");
         try {
 
             OutputStream os = new FileOutputStream(file);

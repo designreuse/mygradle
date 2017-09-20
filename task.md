@@ -191,3 +191,6 @@ action
 public InputStream getDownloadFile() {
 return this.server.getInputstram
 }
+
+## validation
+* SaveUserAction-user_save-validation.xml  打包时没有放到class 中

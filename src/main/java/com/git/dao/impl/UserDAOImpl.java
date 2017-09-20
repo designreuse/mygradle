@@ -34,12 +34,12 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public void removeUser(User user) {
-
+        sessionFactory.getCurrentSession().delete(user);
     }
 
     @Override
     public User findUserById(Integer userId) {
-        return null;
+        return sessionFactory.getCurrentSession().find(User.class,userId);
     }
 
     @Override
@@ -56,6 +56,7 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public void updateUser(User user) {
+        sessionFactory.getCurrentSession().saveOrUpdate(user);
 
     }
 
