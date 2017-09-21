@@ -105,7 +105,7 @@ public class UserServiceImpl implements UserService {
         }
 
 
-        File file = new File("/Users/lihao/logs/test.xls");
+        File file = new File("/Users/lixueqin/Desktop/test.xls");
         try {
 
             OutputStream os = new FileOutputStream(file);
@@ -121,16 +121,16 @@ public class UserServiceImpl implements UserService {
             e.printStackTrace();
         }
 
-//        Executors.newSingleThreadExecutor().submit(() ->{
-//            try {
-//                Thread.sleep(15000);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//            file.delete();
-//            System.out.println("文件已删除-------");
-//
-//        });
+        Executors.newSingleThreadExecutor().submit(() ->{
+            try {
+                Thread.sleep(15000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            file.delete();
+            System.out.println("文件已删除-------");
+
+        });
         return is;
     }
 

@@ -201,3 +201,50 @@ return this.server.getInputstram
 ## validation
 * SaveUserAction-user_save-validation.xml  打包时没有放到class 中
 
+
+---------------920-------------
+1，新建deleteServerlet 服务器启动清除临时文件
+web.xml
+1,不需要mapping
+
+2, wb.getbytes  byteArrayInputstream
+先写入bytearrayoutputStream
+然后获取到数组 构造bytearrayinputstream
+
+documentcatalog 文档类型
+id
+name
+parent
+children
+date
+flag  true 文档类别  false 文档连接
+authorId
+authorName
+type  固定类型
+order
+content  连接的描述
+url  连接的url
+documentItems
+
+
+
+documentItem 文档条目
+id
+name
+authorId
+authorName
+date
+documentcatlog
+realsize 真实的大小 字节
+size  MB GB
+randomName 存在硬盘上的文件名
+type  扩展名
+
+
+users
+id
+username
+password
+relaname
+type    普通用户 还是管理员
+
