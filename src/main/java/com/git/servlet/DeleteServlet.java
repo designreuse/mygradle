@@ -15,5 +15,6 @@ public class DeleteServlet extends HttpServlet {
         File file = new File(".");
 
         //todo 数组判断 listfiles   filefileter
+        System.out.println("--------------服务起来了");
     }
 }

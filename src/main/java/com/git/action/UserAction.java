@@ -54,6 +54,12 @@ public class UserAction extends ActionSupport {
 
     }
 
+    public String showadd() {
+        return "showadd";
+    }
+
+
+
     @Override
     public void validate() {
         Map<String, List<String>> errors = getFieldErrors();
@@ -81,6 +87,10 @@ public class UserAction extends ActionSupport {
         if (Objects.isNull(user.getAge()) || user.getAge() < 1 || user.getAge() > 150) {
             addFieldError("age", "请填正确的年龄 1- 150岁");
         }
+
+        ActionContext actionContext = ActionContext.getContext();
+        Map<String, Object> request = (Map<String, Object>) actionContext.get("request");
+        request.put("user",user);
     }
 
     public String list() {

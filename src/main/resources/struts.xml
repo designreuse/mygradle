@@ -29,9 +29,10 @@
         </action>
 
         <action name="user_*" class="com.git.action.UserAction" method="{1}">
-            <result name="input">/save.jsp</result>
+            <result name="input">/userstest/save.jsp</result>
             <result name="success" type="redirect">user_list</result>
-            <result name="list">/list.jsp</result>
+            <result name="list">/userstest/list.jsp</result>
+
             <result name="delete" type="redirect">user_list</result>
 
 
@@ -39,10 +40,10 @@
 
         <action name="user_detail" class="com.git.action.UserAction" method="detail">
 
-            <result name="show" >/detail.jsp</result>
+            <result name="show" >/userstest/save.jsp</result>
         </action>
         <action name="user_update" class="com.git.action.UserAction" method="update">
-            <result name="input" >/detail.jsp</result>
+            <result name="input" >/userstest/save.jsp</result>
             <result name="update" type="redirect">user_list</result>
         </action>
 
@@ -54,7 +55,11 @@
             </result>
         </action>
 
+        <action name="user_showadd" class="com.git.action.UserAction" method="showadd">
+            <result name="input">/userstest/save.jsp</result>
+            <result name="showadd">/userstest/save.jsp</result>
 
+        </action>
 
     </package>
 
