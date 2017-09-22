@@ -1,9 +1,13 @@
 package com.git.action.documentcatelog;
 
+import com.git.bean.DocumentCatalog;
 import com.git.service.DocumentCatalogService;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 import javax.annotation.Resource;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by lixueqin on 2017/9/22.
@@ -42,7 +46,11 @@ public class ListDocumentAction extends ActionSupport {
 
     @Override
     public String execute() throws Exception {
-        documentCatalogService.listDocumentCatalogByTypeAndParentId(type,parentId);
-        return super.execute();
+        List<DocumentCatalog> list = documentCatalogService.listDocumentCatalogByTypeAndParentId(type, parentId);
+
+        Map<String, Object> request = (Map<String, Object>) ActionContext.getContext().get("request");
+        request.put("list",list);
+
+        return "success";
     }
 }

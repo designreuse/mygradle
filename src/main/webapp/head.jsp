@@ -14,6 +14,7 @@
     <title>DouPHP 管理中心 - 商品列表 </title>
     <meta name="Copyright" content="Douco Design."/>
     <link href="${pageContext.request.contextPath}/css/public.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/vue-2.1.8.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/global.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.autotextarea.js"></script>

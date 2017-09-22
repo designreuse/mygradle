@@ -10,8 +10,8 @@
     <div id="menu">
 
         <ul>
-            <li><a href="product_category.html"><i class="productCat"></i><em>商品分类</em></a></li>
-            <li class="cur"><a href="product.html"><i class="product"></i><em>商品列表</em></a></li>
+            <li><a href="product_category.html"><i class="productCat"></i><em>文档管理</em></a></li>
+            <li class="cur"><a href="user_list"><i class="product"></i><em>用户列表</em></a></li>
         </ul>
 
     </div>

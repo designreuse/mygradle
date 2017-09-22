@@ -2,10 +2,12 @@ package com.git.action.documentcatelog;
 
 import com.git.bean.DocumentCatalog;
 import com.git.service.DocumentCatalogService;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 import javax.annotation.Resource;
 import java.util.Date;
+import java.util.Map;
 
 /**
  * Created by lixueqin on 2017/9/21.
@@ -17,9 +19,10 @@ public class AddDocumentAction extends ActionSupport {
     private String title2;
     private String description;
     private String address;
+    private int order;
 
     private int type;
-    private long parentId;
+    private Long parentId;
 
     public String getTitle() {
         return title;
@@ -69,14 +72,21 @@ public class AddDocumentAction extends ActionSupport {
         this.type = type;
     }
 
-    public long getParentId() {
+    public Long getParentId() {
         return parentId;
     }
 
-    public void setParentId(long parentId) {
+    public void setParentId(Long parentId) {
         this.parentId = parentId;
     }
 
+    public int getOrder() {
+        return order;
+    }
+
+    public void setOrder(int order) {
+        this.order = order;
+    }
 
     @Resource
     private DocumentCatalogService documentCatalogService;
@@ -91,14 +101,22 @@ public class AddDocumentAction extends ActionSupport {
 
 
 
+    public String showAdd() {
+        Map<String, Object> request = (Map<String, Object>) ActionContext.getContext().get("request");
 
-    @Override
-    public String execute() throws Exception {
+        request.put("type",type);
+        request.put("parentId",parentId);
+
+        return "showadd";
+    }
+
+
+    public String save() throws Exception {
 
 
         DocumentCatalog bean = new DocumentCatalog();
         bean.setDate(new Date());
-        bean.setOrder(1);
+        bean.setOrder(order);
         bean.setType(type);
         bean.setAuthorId(1l);
         bean.setAuthorName("lihao");
@@ -127,6 +145,6 @@ public class AddDocumentAction extends ActionSupport {
         }
 
 
-        return super.execute();
+        return "success";
     }
 }

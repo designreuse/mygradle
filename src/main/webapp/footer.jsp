@@ -18,9 +18,9 @@
 </div>
 <script type="text/javascript">
 
-    onload = function () {
-        document.forms['action'].reset();
-    }
+//    onload = function () {
+//        document.forms['action'].reset();
+//    }
 
     function douAction() {
         var frm = document.forms['action'];

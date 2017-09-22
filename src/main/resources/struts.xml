@@ -61,6 +61,30 @@
 
         </action>
 
+        <action name="catelog_add" class="com.git.action.documentcatelog.AddDocumentAction" method="save">
+            <result name="input">/documentcatelog/save.jsp</result>
+            <result name="success" type="redirectAction">
+                <param name="actionName">catelog_list</param>
+                <param name="type">${type}</param>
+                <param name="parentId">${parentId}</param>
+
+            </result>
+
+        </action>
+
+        <action name="catelog_show_add" class="com.git.action.documentcatelog.AddDocumentAction" method="showAdd">
+
+            <result name="showadd">/documentcatelog/save.jsp</result>
+
+        </action>
+
+
+        <action name="catelog_list" class="com.git.action.documentcatelog.ListDocumentAction">
+
+            <result name="success">/documentcatelog/list.jsp</result>
+
+        </action>
+
     </package>
 
 </struts>

@@ -4,7 +4,7 @@
 
 <hibernate-mapping >
     <class name="com.git.bean.DocumentCatalog" table="documentcatalog">
-        <id name="id" type="java.lang.Integer" column="id">
+        <id name="id" type="java.lang.Long" column="id">
             <generator class="increment"></generator>
         </id>
 
