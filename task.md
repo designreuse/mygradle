@@ -248,3 +248,29 @@ password
 relaname
 type    普通用户 还是管理员
 
+
+ set 
+ name 表示类的关联
+ table 关联多的表
+ cascade 级联关系
+ inverse true  这个级联关系需要多的一方维护
+ lazy 懒加载
+ order-by 对set排序
+ key  一的关联字段
+ one-to-many多的类名
+ 
+ 1，文档的添加
+ 2，文档的修改
+ 
+ u.date.toString().substring(0,10)
+ u.flag ==1
+ 
+ <param name="type">1</param>
+ <param name="parentId">1</param>
+ 
+ ridiectName
+  <param name="type">${}</param>
+  <param name="parentId"type>1</param>
+  
+  
+  requet.getContextPathgit
