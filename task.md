@@ -274,3 +274,23 @@ type    普通用户 还是管理员
   
   
   requet.getContextPathgit
+  
+  
+  hibernate
+  merge
+  1,如果session中不存在与参数object 具有相同主键的对象，
+       那么首先需要根据主键从数据库中记载出该对象，然后将参数object中的属性拷贝到加载出来的那个对象上面，
+       最后返回该持久化对象，同时需要注意，参数object并没有关联到session上。
+       
+  2，如果session中存在于参数object具有相同主键的对象，那么直接将参数object中属性拷贝到该持久化对象上，
+    然后将持久化对象返回，同时需要注意，参数object中并没有关联到session上。
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         

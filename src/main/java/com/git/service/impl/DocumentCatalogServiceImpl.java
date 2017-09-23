@@ -41,4 +41,29 @@ public class DocumentCatalogServiceImpl implements DocumentCatalogService {
     public List<DocumentCatalog> listDocumentCatalogByTypeAndParentId(int type, long parentId) {
         return documentCatalogDAO.listDocumentCatalogByTypeAndParentId(type,parentId);
     }
+
+    @Override
+    @Transactional
+    public void deleteDocumentCatalog(long id) {
+        documentCatalogDAO.deleteDocumentCatalog(id);
+    }
+
+    @Override
+    @Transactional
+    public void updateDocumentUpById(long id) {
+        documentCatalogDAO.updateDocumentUpById(id);
+    }
+
+    @Override
+    @Transactional
+    public void updateDocumentDownById(long id) {
+        documentCatalogDAO.updateDocumentDownById(id);
+    }
+
+    @Override
+    @Transactional
+    public void updateDocument(DocumentCatalog bean) {
+        documentCatalogDAO.updateDocument(bean);
+
+    }
 }

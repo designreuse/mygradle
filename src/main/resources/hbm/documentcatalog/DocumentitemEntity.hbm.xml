@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.git.bean.DocumentitemEntity" table="documentitem" >
+        <id name="id">
+            <column name="id" sql-type="bigint(20)"/>
+        </id>
+        <property name="name">
+            <column name="name_" sql-type="varchar(50)" length="50"/>
+        </property>
+        <property name="authorId">
+            <column name="authorId_" sql-type="bigint(20)" not-null="true"/>
+        </property>
+        <property name="authorName">
+            <column name="authorName_" sql-type="varchar(50)" length="50"/>
+        </property>
+        <property name="date">
+            <column name="date_" sql-type="datetime" not-null="true"/>
+        </property>
+        <property name="documentCatalogId">
+            <column name="documentCatalogId_" sql-type="bigint(20)" not-null="true"/>
+        </property>
+        <property name="realSize">
+            <column name="realSize_" sql-type="bigint(20)" not-null="true"/>
+        </property>
+        <property name="size">
+            <column name="size_" sql-type="varchar(50)" length="50" not-null="true"/>
+        </property>
+        <property name="randomName" >
+            <column name="randomName_"  sql-type="varchar(50)" length="50" not-null="true"/>
+        </property>
+        <property name="type">
+            <column name="type_" sql-type="varchar(50)"  length="50" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

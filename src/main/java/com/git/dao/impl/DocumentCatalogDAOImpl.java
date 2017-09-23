@@ -34,7 +34,7 @@ public class DocumentCatalogDAOImpl implements com.git.dao.DocumentCatalogDAO {
     @Override
     public void saveChildDocumentCatalog(DocumentCatalog parent, DocumentCatalog child) {
         //将瞬时状态的parent重新关联到另一个session上
-        sessionFactory.openSession().load(parent, LockMode.NONE);
+        sessionFactory.openSession().lock(parent,LockMode.NONE);
 
         child.setParent(parent);
         parent.getChildren().add(child);
@@ -62,5 +62,35 @@ public class DocumentCatalogDAOImpl implements com.git.dao.DocumentCatalogDAO {
        }
 
 
+    }
+
+    @Override
+    public void deleteDocumentCatalog(long id) {
+        DocumentCatalog bean = sessionFactory.getCurrentSession().get(DocumentCatalog.class, id);
+        sessionFactory.getCurrentSession().delete(bean);
+    }
+
+    @Override
+    public void updateDocumentUpById(long id) {
+        DocumentCatalog bean =  sessionFactory.getCurrentSession().get(DocumentCatalog.class,id);
+        System.out.println("-------order = "+bean.getOrder());
+
+        bean.setOrder(bean.getOrder()-1);
+        sessionFactory.getCurrentSession().save(bean);
+
+
+
+    }
+
+    @Override
+    public void updateDocumentDownById(long id) {
+        DocumentCatalog bean =  sessionFactory.getCurrentSession().get(DocumentCatalog.class,id);
+        bean.setOrder(bean.getOrder()+1);
+        sessionFactory.getCurrentSession().save(bean);
+    }
+
+    @Override
+    public void updateDocument(DocumentCatalog bean) {
+        sessionFactory.getCurrentSession().update(bean);
     }
 }

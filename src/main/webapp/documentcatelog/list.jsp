@@ -55,7 +55,7 @@
                             <th width="80" align="center">上移</th>
                             <th width="80" align="center">下移</th>
                             <th width="80" align="center">子目录/链接</th>
-                            <th width="80" align="center">查看</th>
+                            <th width="80" align="center">文件</th>
                             <th width="80" align="center">操作</th>
                         </tr>
 
@@ -76,11 +76,22 @@
                                     </c:if>
                                 </td>
 
-                                <td align="center">上移</td>
-                                <td align="center">下移</td>
+                                <td align="center">
+                                    <c:if test="${!vs.first}">
+                                        <a href="${pageContext.request.contextPath}/order_up?id=${document.id}&type=${type}&parentId=${parentId}"><img src="${pageContext.request.contextPath}/images/arrowup.gif"></a>
+                                    </c:if>
+
+
+                                </td>
+                                <td align="center">
+                                    <c:if test="${!vs.last}">
+                                        <a href="${pageContext.request.contextPath}/order_down?id=${document.id}&type=${type}&parentId=${parentId}"><img src="${pageContext.request.contextPath}/images/arrowdown.gif"></a>
+                                    </c:if>
+
+                                </td>
                                 <td align="center">
                                     <c:if test="${document.flag}">
-                                        <a href="">进入</a>
+                                        <a href="${pageContext.request.contextPath}/catelog_list?type=${document.type}&parentId=${document.id}">进入</a>
                                     </c:if>
                                     <c:if test="${!document.flag}">
                                         <a href="${document.address}" target="_blank">${document.content}</a>
@@ -93,8 +104,8 @@
 
                                 </td>
                                 <td align="center">
-                                    <a href="user_detail?user.id=${user.id}">编辑</a> | <a
-                                        href="product.php?rec=del&id=15">删除</a>
+                                    <a href="${pageContext.request.contextPath}/document_update?id=${document.id}&type=${type}&parentId=${parentId}">编辑</a> | <a
+                                        href="${pageContext.request.contextPath}/document_del?id=${document.id}&type=${type}&parentId=${parentId}">删除</a>
                                 </td>
                             </tr>
                         </c:forEach>

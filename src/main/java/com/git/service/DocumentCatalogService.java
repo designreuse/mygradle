@@ -15,4 +15,10 @@ public interface DocumentCatalogService {
      void saveChildDocumentCatalog(DocumentCatalog parent, DocumentCatalog child);
 
      List<DocumentCatalog> listDocumentCatalogByTypeAndParentId(int type, long parentId);
+     void deleteDocumentCatalog(long id);
+
+     void updateDocumentUpById(long id);
+     void updateDocumentDownById(long id);
+
+     void updateDocument(DocumentCatalog bean);
 }

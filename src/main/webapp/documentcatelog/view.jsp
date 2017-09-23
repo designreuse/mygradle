@@ -22,46 +22,31 @@
     <div id="urHere">DouPHP 管理中心<b>></b><strong>编辑分类</strong></div>
     <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
         <h3><a href="product_category.php" class="actionBtn">文档分类</a>编辑分类</h3>
-        <form action="catelog_add" method="post" id="forms">
+        <form action="document_edit" method="post" id="forms">
             <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
 
-                <tr>
-                    <td width="80" align="right">类别类型</td>
-                    <td>
-                        <input type="radio" id="directory" name="choice" value="directory" v-model="type" checked="true">
-                        <label for="directory">目录</label>
 
-                        <input type="radio" id="link" value="link" name="choice" v-model="type">
-                        <label for="link">链接</label>
-                    </td>
-                </tr>
-                <tr v-if="${document.flag}">
+
                     <td align="right">名称</td>
                     <td>
-                        <input type="text" name="title" size="50" value="${}" class="inpMain">
+                        <input type="text" name="title" size="50" value="${document.name}" class="inpMain">
                     </td>
-                </tr>
 
 
-
-                <tr v-if="${!document.flag}">
-                    <td align="right">名称</td>
-                    <td>
-                        <input type="text" name="title2" size="50" class="inpMain">
-                    </td>
-                </tr>
 
                 <tr  v-if="${!document.flag}">
                     <td align="right">描述</td>
                     <td>
-                        <textarea name="description" cols="60" rows="4" class="textArea"></textarea>
+                        <textarea name="description" cols="60" rows="4"   class="textArea">
+                            ${document.content}
+                        </textarea>
                     </td>
                 </tr>
 
                 <tr  v-if="${!document.flag}">
                     <td align="right">地址</td>
                     <td>
-                        <input type="text" name="address" size="100" class="inpMain">
+                        <input type="text" name="address"  value="${document.address}" size="100" class="inpMain">
                     </td>
                 </tr>
 
@@ -70,7 +55,7 @@
                 <tr>
                     <td align="right">排序</td>
                     <td>
-                        <input type="text" name="order" value="50" size="5" class="inpMain"/>
+                        <input type="text" name="order" value="${document.order}" size="5" class="inpMain"/>
                     </td>
                 </tr>
                 <tr>
@@ -81,8 +66,9 @@
                     </td>
                 </tr>
 
-                <input type="hidden" name="parentId" value="-1">
-                <input type="hidden" name="type" value="${type}">
+                <input type="hidden" name="parentId" value="${parentId}">
+                <input type="hidden" name="type" value="${document.type}">
+                <input type="hidden" name="id" value="${document.id}">
 
             </table>
         </form>

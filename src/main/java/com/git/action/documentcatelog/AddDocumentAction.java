@@ -104,8 +104,8 @@ public class AddDocumentAction extends ActionSupport {
     public String showAdd() {
         Map<String, Object> request = (Map<String, Object>) ActionContext.getContext().get("request");
 
-        request.put("type",type);
-        request.put("parentId",parentId);
+//        request.put("type",type);
+//        request.put("parentId",parentId);
 
         return "showadd";
     }

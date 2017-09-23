@@ -3,3 +3,6 @@ build/
 gradle/
 .idea/
 /classes/
+/src/main/webapp/.DS_Store
+src/main/.DS_Store
+

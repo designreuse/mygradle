@@ -85,6 +85,54 @@
 
         </action>
 
+        <action name="document_del" class="com.git.action.documentcatelog.DeleteDocumentAction" >
+            <result name="success" type="redirectAction">
+                <param name="actionName">catelog_list</param>
+                <param name="type">${type}</param>
+                <param name="parentId">${parentId}</param>
+
+            </result>
+
+        </action>
+
+
+        <action name="order_up" class="com.git.action.documentcatelog.OrderDocumentAction" method="up" >
+            <result name="up" type="redirectAction">
+                <param name="actionName">catelog_list</param>
+                <param name="type">${type}</param>
+                <param name="parentId">${parentId}</param>
+
+            </result>
+
+        </action>
+
+
+        <action name="order_down" class="com.git.action.documentcatelog.OrderDocumentAction" method="down" >
+            <result name="down" type="redirectAction">
+                <param name="actionName">catelog_list</param>
+                <param name="type">${type}</param>
+                <param name="parentId">${parentId}</param>
+
+            </result>
+
+        </action>
+
+        <action name="document_update" class="com.git.action.documentcatelog.EditDocumentAction" method="updateShow">
+
+            <result name="updateShow">/documentcatelog/view.jsp</result>
+
+        </action>
+
+        <action name="document_edit" class="com.git.action.documentcatelog.EditDocumentAction" method="update" >
+            <result name="update" type="redirectAction">
+                <param name="actionName">catelog_list</param>
+                <param name="type">${type}</param>
+                <param name="parentId">${parentId}</param>
+
+            </result>
+
+        </action>
+
     </package>
 
 </struts>

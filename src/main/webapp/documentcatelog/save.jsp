@@ -81,8 +81,8 @@
                     </td>
                 </tr>
 
-                <input type="hidden" name="parentId" value="-1">
-                <input type="hidden" name="type" value="${type}">
+                <input type="hidden" name="parentId" value="<s:property value="parentId"/>">
+                <input type="hidden" name="type" value="<s:property value="type"/>">
 
             </table>
         </form>
