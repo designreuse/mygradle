@@ -2,6 +2,7 @@ package com.git.bean;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * Created by lixueqin on 2017/9/24.
@@ -13,7 +14,7 @@ public class DocumentitemEntity {
     private String name;
     private Long authorId;
     private String authorName;
-    private Timestamp date;
+    private Date date;
     private Long documentCatalogId;
     private Long realSize;
     private String size;
@@ -64,11 +65,11 @@ public class DocumentitemEntity {
 
     @Basic
     @Column(name = "date_", nullable = true)
-    public Timestamp getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(Timestamp date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 

@@ -29,7 +29,7 @@
 
         <div id="mMain">
             <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
-            <h3><a href="${pageContext.request.contextPath}/catelog_show_add?type=${type}&parentId=${parentId}" class="actionBtn add">添加分类</a>分类列表</h3>
+            <h3><a href="${pageContext.request.contextPath}/addDocumentItem?documentCatalogId=<s:property value="documentCatalogId"/>" class="actionBtn add">添加文档</a>文档列表</h3>
             <div class="filter">
                 <form action="product.php" method="post">
                     <select name="cat_id">
@@ -51,64 +51,36 @@
                             <th width="120" align="center">名称</th>
                             <th width="80" align="center">创建日期</th>
                             <th width="80" align="center">创建者</th>
-                            <th width="80" align="center">类型</th>
-                            <th width="80" align="center">上移</th>
-                            <th width="80" align="center">下移</th>
-                            <th width="80" align="center">子目录/链接</th>
-                            <th width="80" align="center">文件</th>
+                            <th width="80" align="center">文件类型</th>
+                            <th width="80" align="center">文件大小</th>
                             <th width="80" align="center">操作</th>
                         </tr>
 
-                        <c:forEach items="${list}" var="document" varStatus="vs">
+                            <s:iterator value="list" status="st" var="documentItem">
                             <tr>
-                                <td align="center"><input type="checkbox" name="checkbox[]" value="${document.id}"/>
+                                <td align="center"><input type="checkbox" name="checkbox[]" value="${documentItem.id}"/>
                                 </td>
-                                <td align="center">${vs.index}</td>
-                                <td align="center">${document.name}</td>
-                                <td align="center">${document.date.toString().substring(0,10)}</td>
-                                <td align="center">${document.authorName}</td>
+                                <td align="center">${st.count}</td>
+                                <td align="center"><s:property value="name"></s:property></td>
+                                <td align="center"><s:property value="date.toString().substring(0,10)"></s:property></td>
+                                <td align="center"><s:property value="authorName"/></td>
                                 <td align="center">
-                                    <c:if test="${document.flag}">
-                                        目录
-                                    </c:if>
-                                    <c:if test="${!document.flag}">
-                                        链接
-                                    </c:if>
+                                    <s:property value="type"/>
                                 </td>
 
                                 <td align="center">
-                                    <c:if test="${!vs.first}">
-                                        <a href="${pageContext.request.contextPath}/order_up?id=${document.id}&type=${type}&parentId=${parentId}"><img src="${pageContext.request.contextPath}/images/arrowup.gif"></a>
-                                    </c:if>
 
+                                    <s:property value="size"/>
 
                                 </td>
-                                <td align="center">
-                                    <c:if test="${!vs.last}">
-                                        <a href="${pageContext.request.contextPath}/order_down?id=${document.id}&type=${type}&parentId=${parentId}"><img src="${pageContext.request.contextPath}/images/arrowdown.gif"></a>
-                                    </c:if>
 
-                                </td>
-                                <td align="center">
-                                    <c:if test="${document.flag}">
-                                        <a href="${pageContext.request.contextPath}/catelog_list?type=${document.type}&parentId=${document.id}">进入</a>
-                                    </c:if>
-                                    <c:if test="${!document.flag}">
-                                        <a href="${document.address}" target="_blank">${document.content}</a>
-                                    </c:if>
-                                </td>
-                                <td align="center">
-                                    <c:if test="${document.flag}">
-                                        <a href="${pageContext.request.contextPath}/DocumentItem/listDocumentItem?documentCatalogId=${document.id}">查看</a>
-                                    </c:if>
 
-                                </td>
                                 <td align="center">
-                                    <a href="${pageContext.request.contextPath}/document_update?id=${document.id}&type=${type}&parentId=${parentId}">编辑</a> | <a
-                                        href="${pageContext.request.contextPath}/document_del?id=${document.id}&type=${type}&parentId=${parentId}">删除</a>
+                                    <a href="${pageContext.request.contextPath}/documentItem_update?id=<s:property value="id" />">更新</a> | <a
+                                        href="${pageContext.request.contextPath}/documentItem_download?id=<s:property value="id" />git">下载</a>
                                 </td>
                             </tr>
-                        </c:forEach>
+                            </s:iterator>
 
                     </table>
                     <div class="action">

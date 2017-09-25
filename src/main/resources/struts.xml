@@ -40,14 +40,14 @@
 
         <action name="user_detail" class="com.git.action.UserAction" method="detail">
 
-            <result name="show" >/userstest/save.jsp</result>
+            <result name="show">/userstest/save.jsp</result>
         </action>
         <action name="user_update" class="com.git.action.UserAction" method="update">
-            <result name="input" >/userstest/save.jsp</result>
+            <result name="input">/userstest/save.jsp</result>
             <result name="update" type="redirect">user_list</result>
         </action>
 
-        <action name="generatexls" class="com.git.action.GenerateAction" >
+        <action name="generatexls" class="com.git.action.GenerateAction">
             <result name="success" type="stream">
                 <param name="contentType">application/vnd.ms-excel</param>
                 <param name="contentDisposition">attachment;filename="allusers.xls"</param>
@@ -85,7 +85,7 @@
 
         </action>
 
-        <action name="document_del" class="com.git.action.documentcatelog.DeleteDocumentAction" >
+        <action name="document_del" class="com.git.action.documentcatelog.DeleteDocumentAction">
             <result name="success" type="redirectAction">
                 <param name="actionName">catelog_list</param>
                 <param name="type">${type}</param>
@@ -96,7 +96,7 @@
         </action>
 
 
-        <action name="order_up" class="com.git.action.documentcatelog.OrderDocumentAction" method="up" >
+        <action name="order_up" class="com.git.action.documentcatelog.OrderDocumentAction" method="up">
             <result name="up" type="redirectAction">
                 <param name="actionName">catelog_list</param>
                 <param name="type">${type}</param>
@@ -107,7 +107,7 @@
         </action>
 
 
-        <action name="order_down" class="com.git.action.documentcatelog.OrderDocumentAction" method="down" >
+        <action name="order_down" class="com.git.action.documentcatelog.OrderDocumentAction" method="down">
             <result name="down" type="redirectAction">
                 <param name="actionName">catelog_list</param>
                 <param name="type">${type}</param>
@@ -123,7 +123,7 @@
 
         </action>
 
-        <action name="document_edit" class="com.git.action.documentcatelog.EditDocumentAction" method="update" >
+        <action name="document_edit" class="com.git.action.documentcatelog.EditDocumentAction" method="update">
             <result name="update" type="redirectAction">
                 <param name="actionName">catelog_list</param>
                 <param name="type">${type}</param>
@@ -134,5 +134,12 @@
         </action>
 
     </package>
+    <package name="item" namespace="/DocumentItem" extends="struts-default">
 
+        <action name="listDocumentItem" class="com.git.action.documentItem.ListDocumentItemAction">
+            <result name="success">
+                list.jsp
+            </result>
+        </action>
+    </package>
 </struts>

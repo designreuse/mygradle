@@ -20,9 +20,7 @@
         <property name="date">
             <column name="date_" sql-type="datetime" not-null="true"/>
         </property>
-        <property name="documentCatalogId">
-            <column name="documentCatalogId_" sql-type="bigint(20)" not-null="true"/>
-        </property>
+
         <property name="realSize">
             <column name="realSize_" sql-type="bigint(20)" not-null="true"/>
         </property>
@@ -35,5 +33,7 @@
         <property name="type">
             <column name="type_" sql-type="varchar(50)"  length="50" not-null="true"/>
         </property>
+    
+    <many-to-one name="documentCatalog" column="documentCatalogId_" class="com.git.bean.DocumentCatalog"></many-to-one>
     </class>
 </hibernate-mapping>

@@ -11,6 +11,7 @@ public class DocumentCatalog {
     private String name;
     private DocumentCatalog parent;
     private Set<DocumentCatalog> children;
+    private Set<DocumentitemEntity> items;
     private Date date;
     private boolean flag;
     private Long authorId;
@@ -114,5 +115,13 @@ public class DocumentCatalog {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public Set<DocumentitemEntity> getItems() {
+        return items;
+    }
+
+    public void setItems(Set<DocumentitemEntity> items) {
+        this.items = items;
     }
 }
