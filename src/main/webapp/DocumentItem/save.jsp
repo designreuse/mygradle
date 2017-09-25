@@ -95,7 +95,6 @@
         }
     });
     $("#forms").on("click",".x",function (event) {
-        alert(1);
         $(event.target).parents("tr").remove()
         form.count --;
     })
