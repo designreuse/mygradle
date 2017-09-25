@@ -29,7 +29,7 @@
 
         <div id="mMain">
             <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
-            <h3><a href="${pageContext.request.contextPath}/addDocumentItem?documentCatalogId=<s:property value="documentCatalogId"/>" class="actionBtn add">添加文档</a>文档列表</h3>
+            <h3><a href="${pageContext.request.contextPath}/DocumentItem/addDocumentItem?documentCatalogId=<s:property value="documentCatalogId"/>" class="actionBtn add">添加文档</a>文档列表</h3>
             <div class="filter">
                 <form action="product.php" method="post">
                     <select name="cat_id">
@@ -91,11 +91,7 @@
                         </select>
                         <select name="new_cat_id" style="display:none">
                             <option value="0">未分类</option>
-                            <option value="1"> 电子数码</option>
-                            <option value="4">- 智能手机</option>
-                            <option value="5">- 平板电脑</option>
-                            <option value="2"> 家居百货</option>
-                            <option value="3"> 母婴用品</option>
+
                         </select>
                         <input name="submit" class="btn" type="submit" value="执行"/>
                     </div>

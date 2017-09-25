@@ -141,5 +141,10 @@
                 list.jsp
             </result>
         </action>
+
+        <action name="addDocumentItem" class="com.git.action.documentItem.AddDocumentItemAction" method="showAdd">
+            <result name="showAdd">save.jsp</result>
+        </action>
+
     </package>
 </struts>

@@ -31,10 +31,15 @@
         <!--<property name="user" value="${jdbc.username}"></property>-->
         <!--<property name="password" value="${jdbc.password}"></property>-->
 
-        <property name="driverClass" value="${jdbc.driver-local}"></property>
-        <property name="jdbcUrl" value="${jdbc.url-local}"></property>
-        <property name="user" value="${jdbc.username-local}"></property>
-        <property name="password" value="${jdbc.password-local}"></property>
+        <!--<property name="driverClass" value="${jdbc.driver-local}"></property>-->
+        <!--<property name="jdbcUrl" value="${jdbc.url-local}"></property>-->
+        <!--<property name="user" value="${jdbc.username-local}"></property>-->
+        <!--<property name="password" value="${jdbc.password-local}"></property>-->
+
+        <property name="driverClass" value="${jdbc.driver-local_company}"></property>
+        <property name="jdbcUrl" value="${jdbc.url-local_company}"></property>
+        <property name="user" value="${jdbc.username-local_company}"></property>
+        <property name="password" value="${jdbc.password-local_company}"></property>
 
         <!-- 其他配置 -->
         <!--初始化时获取三个连接，取值应在minPoolSize与maxPoolSize之间。Default: 3 -->
