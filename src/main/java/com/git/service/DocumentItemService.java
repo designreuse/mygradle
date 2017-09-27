@@ -14,6 +14,7 @@ public interface DocumentItemService {
     boolean isDocumentItemExistByDcomentCatalogIdAndName(long documentCatalogId,String name);
     void saveDocumentItems(DocumentCatalog documentCatalog,List<DocumentitemEntity> items);
 
-    void deleteDocumentItemById(HttpServletRequest request, long documentCatalogId, List<Long> itemIds);
+    void deleteDocumentItemById(long itemid);
+    DocumentitemEntity getDocumentItemById(long itemid);
 
 }

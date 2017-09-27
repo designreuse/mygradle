@@ -1,11 +1,16 @@
 package com.git.action.documentItem;
 
+import com.git.bean.DocumentitemEntity;
 import com.git.service.DocumentItemService;
+import com.git.util.FileStorage;
 import com.opensymphony.xwork2.ActionSupport;
+import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -50,7 +55,22 @@ public class DeleteDocumentItemAction extends ActionSupport {
 
 //        System.out.println(ids);
 
-        documentItemService.deleteDocumentItemById(request,documentCatalogId,ids);
+
+        ids.forEach(id->{
+            DocumentitemEntity bean = documentItemService.getDocumentItemById(id);
+            documentItemService.deleteDocumentItemById(id);
+            try {
+                File file = new File(FileStorage.getDocumentItemStorage(request) + File.separator + documentCatalogId + File.separator + bean.getRandomName());
+
+                FileUtils.forceDelete(file);
+                if(file.getParentFile().list().length ==0){
+                    file.getParentFile().delete();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        });
 
         return SUCCESS;
     }

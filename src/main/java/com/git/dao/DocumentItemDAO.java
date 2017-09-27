@@ -18,6 +18,7 @@ public interface DocumentItemDAO {
 
     void saveDocumentItems(DocumentCatalog documentCatalog,List<DocumentitemEntity> items);
 
-    void deleteDocumentItemById(HttpServletRequest request,long id,long documentCatalogId);
+    void deleteDocumentItemById(long id);
+    DocumentitemEntity getDocumentItemById(long itemid);
 
 }

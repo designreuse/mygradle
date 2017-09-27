@@ -45,10 +45,16 @@ public class DocumentItemServiceImpl implements DocumentItemService {
 
     @Override
     @Transactional
-    public void deleteDocumentItemById(HttpServletRequest request, long documentCatalogId, List<Long> itemIds) {
-        itemIds.forEach(id->{
-            documentItemDAO.deleteDocumentItemById(request,id,documentCatalogId);
+    public void deleteDocumentItemById(  long itemid) {
 
-        });
+            documentItemDAO.deleteDocumentItemById(itemid);
+
+
+    }
+
+    @Override
+    @Transactional
+    public DocumentitemEntity getDocumentItemById(long itemid) {
+        return documentItemDAO.getDocumentItemById(itemid);
     }
 }

@@ -69,17 +69,18 @@ public class DocumentItemDAOImpl implements DocumentItemDAO {
     }
 
     @Override
-    public void deleteDocumentItemById(HttpServletRequest request,long id,long documentCatalogId) {
+    public void deleteDocumentItemById(long id) {
         Session session = sessionFactory.getCurrentSession();
         DocumentitemEntity bean = session.get(DocumentitemEntity.class, id);
         session.delete(bean);
-        try {
-            File file = new File(FileStorage.getDocumentItemStorage(request) + File.separator + documentCatalogId + File.separator + bean.getRandomName());
 
-            FileUtils.forceDelete(file);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    }
+
+    @Override
+    public DocumentitemEntity getDocumentItemById(long itemid) {
+        Session session = sessionFactory.getCurrentSession();
+        DocumentitemEntity bean = session.get(DocumentitemEntity.class, itemid);
+        return bean;
     }
 
 
