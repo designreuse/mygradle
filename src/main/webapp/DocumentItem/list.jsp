@@ -1,13 +1,9 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: lihao
-  Date: 17/9/21
-  Time: 下午2:15
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+
+
+
 <jsp:include page="/head.jsp"></jsp:include>
 
 <jsp:include page="/left.jsp"></jsp:include>
@@ -66,6 +62,7 @@
                                 <td align="center"><s:property value="date.toString().substring(0,10)"></s:property></td>
                                 <td align="center"><s:property value="authorName"/></td>
                                 <td align="center">
+                                <img src="${pageContext.request.contextPath}/images/icon/<s:property value="iconType"/>" width="15px" height="15px"/> &nbsp;|&nbsp;
                                     <s:property value="type"/>
                                 </td>
 
@@ -78,7 +75,7 @@
 
                                 <td align="center">
                                     <a href="${pageContext.request.contextPath}/documentItem_update?id=<s:property value="id" />">更新</a> | <a
-                                        href="${pageContext.request.contextPath}/documentItem_download?id=<s:property value="id" />git">下载</a>
+                                        href="${pageContext.request.contextPath}//DocumentItem/download?documentItemId=<s:property value="id" />">下载</a>
                                 </td>
                             </tr>
                             </s:iterator>

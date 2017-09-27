@@ -303,7 +303,25 @@ type    普通用户 还是管理员
          
                  }
          
+ #### 文件下载乱码
          
+ ```
+     public String getFilename() throws UnsupportedEncodingException {
+         return new String(filename.getBytes(), "ISO8859-1");
+ 
+     }
+     
+     
+       <action name="download" class="com.git.action.documentItem.DownloadDocumentItemAction">
+                 <result name="success" type="stream">
+                     <!--<param name="contentType">application/vnd.ms-excel</param>-->
+                     <param name="contentType">application/octet-stream;charset=ISO8859-1</param>
+                     <param name="contentDisposition">attachment;filename=${filename}</param>
+                     <param name="inputName">downloadFile</param>
+                 </result>
+             </action>
+         
+ ```        
          
          
 StringTikenizer         

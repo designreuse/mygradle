@@ -57,4 +57,20 @@ public class DocumentItemServiceImpl implements DocumentItemService {
     public DocumentitemEntity getDocumentItemById(long itemid) {
         return documentItemDAO.getDocumentItemById(itemid);
     }
+
+    @Override
+    public String getIconType(String type) {
+        String icon = null;
+        if("doc".equalsIgnoreCase(type) || "docx".equalsIgnoreCase(type)) {
+            icon = "doc.png";
+        } else if("jpg".equalsIgnoreCase(type) ) {
+            icon = "pic.png";
+        } else {
+            icon = "unkown.png";
+        }
+
+        return icon;
+
+    }
+
 }

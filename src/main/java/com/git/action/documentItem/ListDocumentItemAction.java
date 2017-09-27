@@ -38,6 +38,9 @@ public class ListDocumentItemAction extends ActionSupport {
     @Override
     public String execute() throws Exception {
         setList(documentItemService.listDocumentItmesByDocumentCatalogId(documentCatalogId));
+        list.forEach(bean->{
+            bean.setIconType(documentItemService.getIconType(bean.getType()));
+        });
         return "success";
     }
 }

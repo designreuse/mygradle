@@ -162,13 +162,14 @@
             </result>
         </action>
 
-        <!--<action name="down" class="com.git.action.GenerateAction">-->
-            <!--<result name="success" type="stream">-->
+        <action name="download" class="com.git.action.documentItem.DownloadDocumentItemAction">
+            <result name="success" type="stream">
                 <!--<param name="contentType">application/vnd.ms-excel</param>-->
-                <!--<param name="contentDisposition">attachment;filename="allusers.xls"</param>-->
-                <!--<param name="inputName">downloadFile</param>-->
-            <!--</result>-->
-        <!--</action>-->
+                <param name="contentType">application/octet-stream;charset=ISO8859-1</param>
+                <param name="contentDisposition">attachment;filename=${filename}</param>
+                <param name="inputName">downloadFile</param>
+            </result>
+        </action>
 
     </package>
 </struts>

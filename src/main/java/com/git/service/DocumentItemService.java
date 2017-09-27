@@ -17,4 +17,6 @@ public interface DocumentItemService {
     void deleteDocumentItemById(long itemid);
     DocumentitemEntity getDocumentItemById(long itemid);
 
+    String getIconType(String type);
+
 }

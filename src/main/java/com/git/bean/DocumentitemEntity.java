@@ -19,6 +19,7 @@ public class DocumentitemEntity {
     private String size;
     private String randomName;
     private String type;
+    private String iconType;
 
     private DocumentCatalog documentCatalog;
 
@@ -102,7 +103,13 @@ public class DocumentitemEntity {
         this.type = type;
     }
 
+    public String getIconType() {
+        return iconType;
+    }
 
+    public void setIconType(String iconType) {
+        this.iconType = iconType;
+    }
 
     public DocumentCatalog getDocumentCatalog() {
         return documentCatalog;
