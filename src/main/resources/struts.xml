@@ -155,5 +155,20 @@
             <result name="input" >save.jsp</result>
         </action>
 
+        <action name="delete" class="com.git.action.documentItem.DeleteDocumentItemAction" >
+            <result name="success" type="redirectAction">
+                <param name="actionName">listDocumentItem</param>
+                <param name="documentCatalogId">${documentCatalogId}</param>
+            </result>
+        </action>
+
+        <!--<action name="down" class="com.git.action.GenerateAction">-->
+            <!--<result name="success" type="stream">-->
+                <!--<param name="contentType">application/vnd.ms-excel</param>-->
+                <!--<param name="contentDisposition">attachment;filename="allusers.xls"</param>-->
+                <!--<param name="inputName">downloadFile</param>-->
+            <!--</result>-->
+        <!--</action>-->
+
     </package>
 </struts>

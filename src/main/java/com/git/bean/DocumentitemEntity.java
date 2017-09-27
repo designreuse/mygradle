@@ -8,7 +8,6 @@ import java.util.Date;
  * Created by lixueqin on 2017/9/24.
  */
 @Entity
-@Table(name = "documentitem", schema = "arch1", catalog = "")
 public class DocumentitemEntity {
     private long id;
     private String name;

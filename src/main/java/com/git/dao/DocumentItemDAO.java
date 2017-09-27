@@ -3,6 +3,7 @@ package com.git.dao;
 import com.git.bean.DocumentCatalog;
 import com.git.bean.DocumentitemEntity;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -16,5 +17,7 @@ public interface DocumentItemDAO {
 
 
     void saveDocumentItems(DocumentCatalog documentCatalog,List<DocumentitemEntity> items);
+
+    void deleteDocumentItemById(HttpServletRequest request,long id,long documentCatalogId);
 
 }

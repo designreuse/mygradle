@@ -3,6 +3,7 @@ package com.git.service;
 import com.git.bean.DocumentCatalog;
 import com.git.bean.DocumentitemEntity;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -12,5 +13,7 @@ public interface DocumentItemService {
     List<DocumentitemEntity> listDocumentItmesByDocumentCatalogId(long documentCatalogId);
     boolean isDocumentItemExistByDcomentCatalogIdAndName(long documentCatalogId,String name);
     void saveDocumentItems(DocumentCatalog documentCatalog,List<DocumentitemEntity> items);
+
+    void deleteDocumentItemById(HttpServletRequest request, long documentCatalogId, List<Long> itemIds);
 
 }

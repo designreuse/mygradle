@@ -42,7 +42,7 @@
 
             </div>
             <div id="list">
-                <form name="action" method="post" action="product.php?rec=action">
+                <form name="action" method="post" action="${pageContext.request.contextPath}/DocumentItem/delete">
                     <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
                         <tr>
                             <th width="22" align="center"><input name='chkall' type='checkbox' id='chkall'
@@ -58,7 +58,8 @@
 
                             <s:iterator value="list" status="st" var="documentItem">
                             <tr>
-                                <td align="center"><input type="checkbox" name="checkbox[]" value="${documentItem.id}"/>
+                                <td align="center">
+                                    <input type="checkbox" name="ids" value="<s:property value="id"></s:property>"/>
                                 </td>
                                 <td align="center">${st.count}</td>
                                 <td align="center"><s:property value="name"></s:property></td>
@@ -83,10 +84,11 @@
                             </s:iterator>
 
                     </table>
+                    <input type="hidden" name="documentCatalogId" value="<s:property value="documentCatalogId"/>"/>
                     <div class="action">
                         <select name="action" onchange="douAction()">
                             <option value="0">请选择...</option>
-                            <option value="del_all">删除</option>
+                            <option value="1">删除</option>
                             <option value="category_move">移动分类至</option>
                         </select>
                         <select name="new_cat_id" style="display:none">

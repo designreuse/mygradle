@@ -3,12 +3,17 @@ package com.git.dao.impl;
 import com.git.bean.DocumentCatalog;
 import com.git.bean.DocumentitemEntity;
 import com.git.dao.DocumentItemDAO;
+import com.git.util.FileStorage;
+import org.apache.commons.io.FileUtils;
 import org.hibernate.LockMode;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -26,7 +31,7 @@ public class DocumentItemDAOImpl implements DocumentItemDAO {
     @Override
     public List<DocumentitemEntity> listDocumentItmesByDocumentCatalogId(long documentCatalogId) {
         String hql = "from DocumentitemEntity bean where bean.documentCatalog.id=:documentCatalogId order by bean.id desc";
-        List<DocumentitemEntity> data = sessionFactory.getCurrentSession().createQuery(hql).setParameter("documentCatalogId", documentCatalogId).list();
+        List<DocumentitemEntity> data = sessionFactory.getCurrentSession().createQuery(hql).setParameter("documentCatalogId", documentCatalogId).getResultList();
         return data;
     }
 
@@ -58,13 +63,24 @@ public class DocumentItemDAOImpl implements DocumentItemDAO {
             session.flush();
             session.clear();
 
-
         }
 
 
-
-
-
-
     }
+
+    @Override
+    public void deleteDocumentItemById(HttpServletRequest request,long id,long documentCatalogId) {
+        Session session = sessionFactory.getCurrentSession();
+        DocumentitemEntity bean = session.get(DocumentitemEntity.class, id);
+        session.delete(bean);
+        try {
+            File file = new File(FileStorage.getDocumentItemStorage(request) + File.separator + documentCatalogId + File.separator + bean.getRandomName());
+
+            FileUtils.forceDelete(file);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }

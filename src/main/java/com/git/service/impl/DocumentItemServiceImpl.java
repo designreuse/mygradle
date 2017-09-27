@@ -6,10 +6,13 @@ import com.git.dao.DocumentCatalogDAO;
 import com.git.dao.DocumentItemDAO;
 import com.git.service.DocumentCatalogService;
 import com.git.service.DocumentItemService;
+import com.git.util.FileStorage;
+import org.apache.commons.io.FileUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -38,5 +41,14 @@ public class DocumentItemServiceImpl implements DocumentItemService {
     @Transactional
     public void saveDocumentItems(DocumentCatalog documentCatalog, List<DocumentitemEntity> items) {
         documentItemDAO.saveDocumentItems(documentCatalog,items);
+    }
+
+    @Override
+    @Transactional
+    public void deleteDocumentItemById(HttpServletRequest request, long documentCatalogId, List<Long> itemIds) {
+        itemIds.forEach(id->{
+            documentItemDAO.deleteDocumentItemById(request,id,documentCatalogId);
+
+        });
     }
 }

@@ -41,7 +41,7 @@ public class CharacterUtils {
 
 
         String strleng = String.valueOf(floLength);
-        strleng.substring(0, strleng.lastIndexOf(".") + 2);
+        strleng = strleng.substring(0, strleng.lastIndexOf(".") + 2);
         return strleng + unit;
 
 

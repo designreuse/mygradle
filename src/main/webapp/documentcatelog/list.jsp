@@ -19,11 +19,11 @@
         <div id="mMenu">
             <h3>手机版</h3>
             <ul>
-                <li><a href="catelog_list.action?type=1&parentId=-1" class="cur">公司文档</a></li>
-                <li><a href="catelog_list.action?type=2&parentId=-1">部门文档</a></li>
-                <li><a href="catelog_list.action?type=3&parentId=-1">协作文档</a></li>
-                <li><a href="catelog_list.action?type=4&parentId=-1">共享文档</a></li>
-                <li><a href="catelog_list.action?type=5&parentId=-1">培训文档</a></li>
+                <li><a href="${pageContext.request.contextPath}/catelog_list.action?type=1&parentId=-1" class="cur">公司文档</a></li>
+                <li><a href="${pageContext.request.contextPath}/catelog_list.action?type=2&parentId=-1">部门文档</a></li>
+                <li><a href="${pageContext.request.contextPath}/catelog_list.action?type=3&parentId=-1">协作文档</a></li>
+                <li><a href="${pageContext.request.contextPath}/catelog_list.action?type=4&parentId=-1">共享文档</a></li>
+                <li><a href="${pageContext.request.contextPath}/catelog_list.action?type=5&parentId=-1">培训文档</a></li>
             </ul>
         </div>
 
@@ -114,7 +114,7 @@
                     <div class="action">
                         <select name="action" onchange="douAction()">
                             <option value="0">请选择...</option>
-                            <option value="del_all">删除</option>
+                            <option value="1">删除</option>
                             <option value="category_move">移动分类至</option>
                         </select>
                         <select name="new_cat_id" style="display:none">
