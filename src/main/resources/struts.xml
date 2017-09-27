@@ -8,6 +8,7 @@
     <constant name="struts.enable.DynamicMethodInvocation" value="true"></constant>
     <!--设置开发模式，默认关闭。如果设置true：将提供更多提示信息，自动加载文件-->
     <constant name="struts.devMode" value="true"></constant>
+    <constant name="struts.multipart.maxSize" value="1000000000"></constant>
     <!--
     name:单纯的给包起一个名字,不要与其他包名重复
         namespace: 为action访问加上一层或多层路径
@@ -144,6 +145,14 @@
 
         <action name="addDocumentItem" class="com.git.action.documentItem.AddDocumentItemAction" method="showAdd">
             <result name="showAdd">save.jsp</result>
+        </action>
+
+        <action name="upload" class="com.git.action.documentItem.AddDocumentItemAction" method="upload">
+            <result name="success" type="redirectAction">
+                <param name="actionName">listDocumentItem</param>
+                <param name="documentCatalogId">${documentCatalogId}</param>
+            </result>
+            <result name="input" >save.jsp</result>
         </action>
 
     </package>

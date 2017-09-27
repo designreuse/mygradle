@@ -32,7 +32,7 @@ gretty{
     httpEnabled = true
     servletContainer = 'tomcat8'
     contextPath = '/mygit'
-    httpPort = 8081
+    httpPort = 8082
     host = "localhost"
     scanInterval = 1
     fastReload =true

@@ -286,12 +286,25 @@ type    普通用户 还是管理员
     然后将持久化对象返回，同时需要注意，参数object中并没有关联到session上。
          
 -----------------------------
+   Struts has detected an unhandled exception:
+   
+   Messages:	
+   A different object with the same identifier value was already associated with the session : [com.git.bean.DocumentitemEntity#0]
+   File:	org/hibernate/internal/ExceptionConverterImpl.java
+   Line number:	118      
+         
+         for (DocumentitemEntity entity : items) {
+         
+                     entity.setDocumentCatalog(documentCatalog);
+                     session.save(entity);
+                     session.flush();
+                     session.clear();
+         
+         
+                 }
          
          
          
          
-         
-         
-         
-         
+StringTikenizer         
          

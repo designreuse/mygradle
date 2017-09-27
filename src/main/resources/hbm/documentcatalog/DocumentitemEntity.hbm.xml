@@ -6,6 +6,7 @@
 
     <class name="com.git.bean.DocumentitemEntity" table="documentitem" >
         <id name="id">
+
             <column name="id" sql-type="bigint(20)"/>
         </id>
         <property name="name">

@@ -27,4 +27,16 @@ public class DocumentItemServiceImpl implements DocumentItemService {
     public List<DocumentitemEntity> listDocumentItmesByDocumentCatalogId(long documentCatalogId) {
         return documentItemDAO.listDocumentItmesByDocumentCatalogId(documentCatalogId);
     }
+
+    @Override
+    @Transactional
+    public boolean isDocumentItemExistByDcomentCatalogIdAndName(long documentCatalogId, String name) {
+        return documentItemDAO.isDocumentItemExistByDcomentCatalogIdAndName(documentCatalogId,name);
+    }
+
+    @Override
+    @Transactional
+    public void saveDocumentItems(DocumentCatalog documentCatalog, List<DocumentitemEntity> items) {
+        documentItemDAO.saveDocumentItems(documentCatalog,items);
+    }
 }

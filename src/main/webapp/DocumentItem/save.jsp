@@ -21,15 +21,17 @@
     <!-- 当前位置 -->
     <div id="urHere">DouPHP 管理中心<b>></b><strong>添加分类</strong></div>
     <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
-        <h3><a href="product_category.php" class="actionBtn">文档分类</a>添加分类</h3>
-        <form action="catelog_add" method="post" id="forms">
+        <h3><a href="" class="actionBtn">文档分类</a>添加分类</h3>
+
+        <span style="color: red">${actionErrors[0]}</span>
+        <form action="${pageContext.request.contextPath}/DocumentItem/upload" method="post" id="forms" enctype="multipart/form-data">
             <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
 
 
                 <tr>
                     <td align="right">上传文件</td>
                     <td>
-                        <input type="file" name="files[]" size="38" class="inpFlie">
+                        <input type="file" name="file" size="38" class="inpFlie">
                         <img src="${pageContext.request.contextPath}/images/action_btn.gif" style="cursor: pointer"
                              @click="add">
                     </td>
@@ -42,7 +44,7 @@
                 <tr>
                     <td></td>
                     <td>
-
+                        <input type="hidden" name="documentCatalogId" value="<s:property value="documentCatalogId"/>">
                         <input name="submit" class="btn" type="submit" value="提交"/>
                     </td>
                 </tr>
@@ -59,7 +61,7 @@
     var dome = ' <tr class="add">\
         <td align="right"></td>\
         <td>\
-        <input type="file" name="files[]" size="38" class="inpFlie">\
+        <input type="file" name="file" size="38" class="inpFlie">\
         <img src="${pageContext.request.contextPath}/images/icon_no.png" style="cursor: pointer" class="x">\
         </td>\
         </tr>';

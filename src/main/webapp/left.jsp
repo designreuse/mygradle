@@ -10,8 +10,8 @@
     <div id="menu">
 
         <ul>
-            <li><a href="catelog_list.action?type=1&parentId=-1"><i class="productCat"></i><em>文档管理</em></a></li>
-            <li class="cur"><a href="user_list"><i class="product"></i><em>用户列表</em></a></li>
+            <li><a href="${pageContext.request.contextPath}/catelog_list.action?type=1&parentId=-1"><i class="productCat"></i><em>文档管理</em></a></li>
+            <li class="cur"><a href="${pageContext.request.contextPath}/user_list"><i class="product"></i><em>用户列表</em></a></li>
         </ul>
 
     </div>

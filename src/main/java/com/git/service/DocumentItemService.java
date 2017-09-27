@@ -10,4 +10,7 @@ import java.util.List;
  */
 public interface DocumentItemService {
     List<DocumentitemEntity> listDocumentItmesByDocumentCatalogId(long documentCatalogId);
+    boolean isDocumentItemExistByDcomentCatalogIdAndName(long documentCatalogId,String name);
+    void saveDocumentItems(DocumentCatalog documentCatalog,List<DocumentitemEntity> items);
+
 }
