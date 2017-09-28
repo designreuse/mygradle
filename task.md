@@ -326,4 +326,16 @@ type    普通用户 还是管理员
          
 ## 更新文件名
 文件可以跟当前文件重名 不能跟其他文件重名
+
+## DWR
+    DWR 是一种ajax解决方案
+    DWR 包括一个java库，以及一套javascript，使得我们可以用一种非常简单的方式，在页面上
+    使用JavaScript直接调用后台的java对象！
+    
+####    DWR架构
+    DWR的javascript库包括几个部分：dwr的javascript引擎（即对AJAX调用的封装）、
+    dwr提供的一些非常有用的辅助javascript函数库、以及dwr自动帮我们生成的专门用于调用后台JavaBean方法的javascript库！ 
+   
+    Dwr在运行的时候，动态生成一个javascript库，这个库是对后台javabean调用的封装，我
+    们可以直接使用这个库来实现直接调用JavaBean的目的！
          
