@@ -18,5 +18,6 @@ public interface DocumentItemService {
     DocumentitemEntity getDocumentItemById(long itemid);
 
     String getIconType(String type);
+    void updateDocumentItem(DocumentitemEntity entity);
 
 }

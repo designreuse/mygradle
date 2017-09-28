@@ -171,5 +171,22 @@
             </result>
         </action>
 
+        <action name="showupdate" class="com.git.action.documentItem.EditDocumentItemAction" method="show">
+            <result name="show">
+                update.jsp
+            </result>
+        </action>
+
+
+        <action name="update" class="com.git.action.documentItem.EditDocumentItemAction" method="update" >
+            <result name="success" type="redirectAction">
+                <param name="actionName">listDocumentItem</param>
+                <param name="documentCatalogId">${documentCatalogId}</param>
+            </result>
+            <result name="input">
+                update.jsp
+            </result>
+        </action>
+
     </package>
 </struts>

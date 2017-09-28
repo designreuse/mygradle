@@ -21,4 +21,6 @@ public interface DocumentItemDAO {
     void deleteDocumentItemById(long id);
     DocumentitemEntity getDocumentItemById(long itemid);
 
+    void updateDocumentItem(DocumentitemEntity entity);
+
 }

@@ -74,8 +74,8 @@
 
 
                                 <td align="center">
-                                    <a href="${pageContext.request.contextPath}/documentItem_update?id=<s:property value="id" />">更新</a> | <a
-                                        href="${pageContext.request.contextPath}//DocumentItem/download?documentItemId=<s:property value="id" />">下载</a>
+                                    <a href="${pageContext.request.contextPath}/DocumentItem/showupdate?itemId=<s:property value="id" />&documentCatalogId=${param['documentCatalogId']}">更新</a> | <a
+                                        href="${pageContext.request.contextPath}/DocumentItem/download?documentItemId=<s:property value="id" />">下载</a>
                                 </td>
                             </tr>
                             </s:iterator>

@@ -5,6 +5,7 @@ import com.git.service.DocumentItemService;
 import com.opensymphony.xwork2.ActionSupport;
 
 import javax.annotation.Resource;
+import java.io.File;
 import java.util.List;
 
 /**
@@ -18,6 +19,9 @@ public class ListDocumentItemAction extends ActionSupport {
     private long documentCatalogId;
 
     private List<DocumentitemEntity> list;
+
+
+    private File file;
 
     public long getDocumentCatalogId() {
         return documentCatalogId;

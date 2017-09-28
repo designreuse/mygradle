@@ -62,15 +62,39 @@ public class DocumentItemServiceImpl implements DocumentItemService {
     public String getIconType(String type) {
         String icon = null;
         if("doc".equalsIgnoreCase(type) || "docx".equalsIgnoreCase(type)) {
-            icon = "doc.png";
-        } else if("jpg".equalsIgnoreCase(type) ) {
+            icon = "word.png";
+        } else if("jpg".equalsIgnoreCase(type) || "png".equalsIgnoreCase(type) ||  "jpeg".equalsIgnoreCase(type)
+                ||  "gif".equalsIgnoreCase(type)) {
             icon = "pic.png";
+        } else if("pdf".equalsIgnoreCase("pdf")) {
+            icon = "pdf.png";
+
+        } else if("mp3".equalsIgnoreCase(type) || "mp4".equalsIgnoreCase(type) || "avi".equalsIgnoreCase(type)|| "wmv".equalsIgnoreCase(type)) {
+            icon = "media.png";
+
+        } else if("txt".equalsIgnoreCase(type) || "log".equalsIgnoreCase(type)|| "md".equalsIgnoreCase(type)) {
+            icon = "txt.png";
+
+        } else if("xls".equalsIgnoreCase(type) || "xlsx".equalsIgnoreCase(type)) {
+            icon = "xls.png";
+
+        } else if("pdf".equalsIgnoreCase(type)) {
+
+            icon = "doc.png";
+        } else if("zip".equalsIgnoreCase(type) || "rar".equalsIgnoreCase(type) || "gz".equalsIgnoreCase(type)) {
+            icon = "zip.png";
         } else {
-            icon = "unkown.png";
+            icon = "orther.png";
         }
 
         return icon;
 
+    }
+
+    @Override
+    @Transactional
+    public void updateDocumentItem(DocumentitemEntity entity) {
+        documentItemDAO.updateDocumentItem(entity);
     }
 
 }

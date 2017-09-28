@@ -83,5 +83,12 @@ public class DocumentItemDAOImpl implements DocumentItemDAO {
         return bean;
     }
 
+    @Override
+    public void updateDocumentItem(DocumentitemEntity entity) {
+        Session session = sessionFactory.getCurrentSession();
+        session.update(entity);
+
+    }
+
 
 }
