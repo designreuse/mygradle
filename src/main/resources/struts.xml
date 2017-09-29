@@ -15,7 +15,7 @@
         extends: 继承一个其他包,目的是引入其他包的配置
         abstract: 声明包是抽象的.意思就是让别的包来继承,声明为抽象的包中不能含有Action配置
     -->
-    <package name="hello" namespace="/documentcatelog" extends="struts-default">
+    <package name="hello" namespace="/oa" extends="struts-default">
         <!--
             name: 为我们的action类加上一个标识,在访问时填入name名称.就可以找到action
             class: action完整类名
@@ -135,7 +135,7 @@
         </action>
 
     </package>
-    <package name="item" namespace="/DocumentItem" extends="struts-default">
+    <package name="item" namespace="/oa/DocumentItem" extends="struts-default">
 
         <action name="listDocumentItem" class="com.git.action.documentItem.ListDocumentItemAction">
             <result name="success">

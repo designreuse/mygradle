@@ -15,17 +15,17 @@
         <div id="mMenu">
             <h3>手机版</h3>
             <ul>
-    <li><a href="${pageContext.request.contextPath}/catelog_list.action?type=1&parentId=-1" class="cur">公司文档</a></li>
-    <li><a href="${pageContext.request.contextPath}/catelog_list.action?type=2&parentId=-1">部门文档</a></li>
-    <li><a href="${pageContext.request.contextPath}/catelog_list.action?type=3&parentId=-1">协作文档</a></li>
-    <li><a href="${pageContext.request.contextPath}/catelog_list.action?type=4&parentId=-1">共享文档</a></li>
-    <li><a href="${pageContext.request.contextPath}/catelog_list.action?type=5&parentId=-1">培训文档</a></li>
+                <li><a href="${pageContext.request.contextPath}/oa/catelog_list.action?type=1&parentId=-1" class="cur">公司文档</a></li>
+                <li><a href="${pageContext.request.contextPath}/oa/catelog_list.action?type=2&parentId=-1">部门文档</a></li>
+                <li><a href="${pageContext.request.contextPath}/oa/catelog_list.action?type=3&parentId=-1">协作文档</a></li>
+                <li><a href="${pageContext.request.contextPath}/oa/catelog_list.action?type=4&parentId=-1">共享文档</a></li>
+                <li><a href="${pageContext.request.contextPath}/oa/catelog_list.action?type=5&parentId=-1">培训文档</a></li>
             </ul>
         </div>
 
         <div id="mMain">
             <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
-            <h3><a href="${pageContext.request.contextPath}/DocumentItem/addDocumentItem?documentCatalogId=<s:property value="documentCatalogId"/>" class="actionBtn add">添加文档</a>文档列表</h3>
+            <h3><a href="${pageContext.request.contextPath}/oa/DocumentItem/addDocumentItem?documentCatalogId=<s:property value="documentCatalogId"/>" class="actionBtn add">添加文档</a>文档列表</h3>
             <div class="filter">
                 <form action="product.php" method="post">
                     <select name="cat_id">
@@ -38,7 +38,7 @@
 
             </div>
             <div id="list">
-                <form name="action" method="post" action="${pageContext.request.contextPath}/DocumentItem/delete">
+                <form name="action" method="post" action="${pageContext.request.contextPath}/oa/DocumentItem/delete">
                     <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
                         <tr>
                             <th width="22" align="center"><input name='chkall' type='checkbox' id='chkall'
@@ -74,8 +74,8 @@
 
 
                                 <td align="center">
-                                    <a href="${pageContext.request.contextPath}/DocumentItem/showupdate?itemId=<s:property value="id" />&documentCatalogId=${param['documentCatalogId']}">更新</a> | <a
-                                        href="${pageContext.request.contextPath}/DocumentItem/download?documentItemId=<s:property value="id" />">下载</a>
+                                    <a href="${pageContext.request.contextPath}/oa/DocumentItem/showupdate?itemId=<s:property value="id" />&documentCatalogId=${param['documentCatalogId']}">更新</a> | <a
+                                        href="${pageContext.request.contextPath}/oa/DocumentItem/download?documentItemId=<s:property value="id" />">下载</a>
                                 </td>
                             </tr>
                             </s:iterator>

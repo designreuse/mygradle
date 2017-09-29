@@ -24,7 +24,7 @@
         <h3><a href="" class="actionBtn">文档分类</a>添加分类</h3>
 
         <span style="color: red">${fieldErrors['error'][0]}</span>
-        <form action="${pageContext.request.contextPath}/DocumentItem/update" method="post" id="forms" enctype="multipart/form-data">
+        <form action="${pageContext.request.contextPath}/oa/DocumentItem/update" method="post" id="forms" enctype="multipart/form-data">
             <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
 
                 <tr>

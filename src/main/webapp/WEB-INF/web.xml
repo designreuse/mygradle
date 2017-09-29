@@ -43,21 +43,6 @@
         <!--<servlet-name>myservlet</servlet-name>-->
         <!--<url-pattern>/myservlet</url-pattern>-->
     <!--</servlet-mapping>-->
-    <filter>
-        <filter-name>struts2</filter-name>
-        <filter-class>org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>struts2</filter-name>
-        <url-pattern>/aa</url-pattern>
-    </filter-mapping>
-
-
-    <servlet>
-        <servlet-name>delete</servlet-name>
-        <servlet-class>com.git.servlet.DeleteServlet</servlet-class>
-        <load-on-startup>8</load-on-startup>
-    </servlet>
 
 
     <servlet>
@@ -69,8 +54,31 @@
         </init-param>
     </servlet>
 
+
+
+
+    <filter>
+        <filter-name>struts2</filter-name>
+        <filter-class>org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>struts2</filter-name>
+        <url-pattern>/oa/*</url-pattern>
+
+    </filter-mapping>
     <servlet-mapping>
         <servlet-name>dwr-invoker</servlet-name>
         <url-pattern>/dwr/*</url-pattern>
     </servlet-mapping>
+
+
+
+    <servlet>
+        <servlet-name>delete</servlet-name>
+        <servlet-class>com.git.servlet.DeleteServlet</servlet-class>
+        <load-on-startup>8</load-on-startup>
+    </servlet>
+
+
+
 </web-app>
