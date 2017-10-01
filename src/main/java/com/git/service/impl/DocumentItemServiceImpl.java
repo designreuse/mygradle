@@ -97,4 +97,10 @@ public class DocumentItemServiceImpl implements DocumentItemService {
         documentItemDAO.updateDocumentItem(entity);
     }
 
+    @Override
+    @Transactional
+    public List<DocumentitemEntity> listDocumentItmesBySort(long documentCatalogId, String filed, String away) {
+        return documentItemDAO.listDocumentItmesBySort(documentCatalogId,filed,away);
+    }
+
 }

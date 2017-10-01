@@ -90,5 +90,18 @@ public class DocumentItemDAOImpl implements DocumentItemDAO {
 
     }
 
+    @Override
+    public List<DocumentitemEntity> listDocumentItmesBySort(long documentCatalogId, String filed, String away) {
+
+        StringBuffer sb = new StringBuffer();
+        sb.append("from DocumentitemEntity bean where bean.documentCatalog.id=:documentCatalogId order by bean");
+        sb.append("."+filed).append(" "+away);
+        String hql = sb.toString();
+        List<DocumentitemEntity> data = sessionFactory.getCurrentSession().createQuery(hql).setParameter("documentCatalogId", documentCatalogId)
+                .getResultList();
+        return data;
+
+    }
+
 
 }

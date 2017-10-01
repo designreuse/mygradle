@@ -44,11 +44,29 @@
                             <th width="22" align="center"><input name='chkall' type='checkbox' id='chkall'
                                                                  onclick='selectcheckbox(this.form)' value='check'></th>
                             <th width="40" align="center">编号</th>
-                            <th width="120" align="center">名称</th>
+                            <th width="120" align="center">名称
+
+                                <a href="${pageContext.request.contextPath}/oa/DocumentItem/listDocumentItem?documentCatalogId=<s:property value="documentCatalogId"/>&field=name&away=asc">
+                                    <img src="${pageContext.request.contextPath}/images/arrowup.gif" style="width: 15px;height: 15px">
+                                </a>
+                                <a href="${pageContext.request.contextPath}/oa/DocumentItem/listDocumentItem?documentCatalogId=<s:property value="documentCatalogId"/>&field=name&away=desc">
+                                    <img src="${pageContext.request.contextPath}/images/arrowdown.gif" style="width: 15px;height: 15px">
+                                </a>
+
+                            </th>
                             <th width="80" align="center">创建日期</th>
                             <th width="80" align="center">创建者</th>
                             <th width="80" align="center">文件类型</th>
-                            <th width="80" align="center">文件大小</th>
+          2                  <th width="100" align="center">文件大小
+                                <a href="${pageContext.request.contextPath}/oa/DocumentItem/listDocumentItem?documentCatalogId=<s:property value="documentCatalogId"/>&field=realSize&away=asc">
+                                    <img src="${pageContext.request.contextPath}/images/arrowup.gif" style="width: 15px;height: 15px">
+                                </a>
+                                <a href="${pageContext.request.contextPath}/oa/DocumentItem/listDocumentItem?documentCatalogId=<s:property value="documentCatalogId"/>&field=realSize&away=desc">
+                                    <img src="${pageContext.request.contextPath}/images/arrowdown.gif" style="width: 15px;height: 15px">
+                                </a>
+
+
+                            </th>
                             <th width="80" align="center">操作</th>
                         </tr>
 

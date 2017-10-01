@@ -1,6 +1,7 @@
 package com.git.action.documentItem;
 
 import com.git.bean.DocumentCatalog;
+import com.git.bean.DocumentItemUploadInfo;
 import com.git.bean.DocumentitemEntity;
 import com.git.service.DocumentCatalogService;
 import com.git.service.DocumentItemService;
@@ -15,10 +16,7 @@ import org.apache.struts2.ServletActionContext;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.RandomAccessFile;
+import java.io.*;
 import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 import java.util.Date;
@@ -86,6 +84,17 @@ public class AddDocumentItemAction extends ActionSupport {
         List<DocumentitemEntity> list = new ArrayList<>();
         DocumentitemEntity bean = null;
         Date date = new Date();
+        HttpServletRequest request = ServletActionContext.getRequest();
+        //设置session 获取到文件的总大小
+        long totalSize = 0;
+        for(File f:file) {
+            totalSize +=f.length();
+        }
+        DocumentItemUploadInfo info = new DocumentItemUploadInfo();
+
+        request.getSession().setAttribute("uploadInfo",info);
+
+
         for (int i = 0; i < file.size(); ++i) {
 //            System.out.println(fileFileName.get(i));
             bean = new DocumentitemEntity();
@@ -105,6 +114,8 @@ public class AddDocumentItemAction extends ActionSupport {
             long time = System.currentTimeMillis();
             String randomFileName = time + FileUtility.randomName(fileName);
 
+            info.getTotalSize().add(length);
+            info.getHasRead().add(0L);
 
             bean.setDate(date);
             bean.setAuthorId(1l);
@@ -118,7 +129,7 @@ public class AddDocumentItemAction extends ActionSupport {
 //            FileChannel fileChannel  = file.get
 
             try {
-                HttpServletRequest request = ServletActionContext.getRequest();
+
 
                 //得到要保存的文件
                 File tempFile = new File(FileStorage.getDocumentItemStorage(request),
@@ -129,8 +140,25 @@ public class AddDocumentItemAction extends ActionSupport {
                 //创建父目录
                 FileUtils.forceMkdir(tempFile.getParentFile());
 
-                FileChannel fileChannel = new RandomAccessFile(file.get(i), "rw").getChannel();
-                fileChannel.transferTo(0, length, new RandomAccessFile(tempFile,"rw").getChannel());
+//                FileChannel fileChannel = new RandomAccessFile(file.get(i), "rw").getChannel();
+//                fileChannel.transferTo(0, length, new RandomAccessFile(tempFile,"rw").getChannel());
+                InputStream is = new FileInputStream(file.get(i));
+                OutputStream os = new FileOutputStream(tempFile);
+
+                int len = 0;
+                byte[] buffer =new byte[1024];
+                while ((len = is.read(buffer)) != -1) {
+                    os.write(buffer,0,len);
+
+                    //模拟延时
+                    Thread.sleep(50);
+
+                    //当前一共读取了多少字节
+//                    info.setHasRead(info.getHasRead()+len);
+                    info.getHasRead().set(i,info.getHasRead().get(i)+len);
+                }
+
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -141,6 +169,9 @@ public class AddDocumentItemAction extends ActionSupport {
         }
 
         documentItemService.saveDocumentItems(documentCatalog,list);
+
+        //清除session中的对象
+        request.getSession().removeAttribute("uploadInfo");
 
 
         return "success";
