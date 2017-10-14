@@ -34,7 +34,7 @@
                 <form action="product.php" method="post">
                     <select name="cat_id">
                         <option value="0">未分类</option>
-                     >
+
                     </select>
                     <input name="keyword" type="text" class="inpMain" value="" size="20"/>
                     <input name="submit" class="btnGray" type="submit" value="筛选"/>

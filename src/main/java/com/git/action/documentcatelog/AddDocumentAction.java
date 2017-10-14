@@ -91,16 +91,6 @@ public class AddDocumentAction extends ActionSupport {
     @Resource
     private DocumentCatalogService documentCatalogService;
 
-    public DocumentCatalogService getDocumentCatalogService() {
-        return documentCatalogService;
-    }
-
-    public void setDocumentCatalogService(DocumentCatalogService documentCatalogService) {
-        this.documentCatalogService = documentCatalogService;
-    }
-
-
-
     public String showAdd() {
         Map<String, Object> request = (Map<String, Object>) ActionContext.getContext().get("request");
 

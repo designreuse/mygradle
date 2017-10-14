@@ -74,7 +74,7 @@
         <property name="mappingLocations" >
             <array>
                 <value>classpath:hbm/*/*.hbm.xml</value>
-                <!--<value>classpath:hbm/*.hbm.xml</value>-->
+                <value>classpath:hbm/*.hbm.xml</value>
             </array>
         </property>
 

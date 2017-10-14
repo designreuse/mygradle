@@ -189,4 +189,31 @@
         </action>
 
     </package>
+
+
+    <package name="Users" namespace="/oa/Users" extends="struts-default">
+        <action name="addUsers" class="com.git.action.users.AddUsersAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">listUsers</param>
+            </result>
+        </action>
+        <action name="listUsers" class="com.git.action.users.ListUsersAction">
+            <result name="success">listUsers.jsp</result>
+        </action>
+        <action name="deleteUsers" class="com.git.action.users.DeleteUsersAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">listUsers</param>
+            </result>
+        </action>
+        <action name="updatepUsers" class="com.git.action.users.UpdatepUsersAction">
+            <result name="success">updateUsers.jsp</result>
+        </action>
+        <action name="updateUsers" class="com.git.action.users.UpdateUsersAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">listUsers</param>
+            </result>
+        </action>
+    </package>
+
+
 </struts>
