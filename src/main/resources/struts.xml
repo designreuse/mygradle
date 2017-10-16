@@ -203,6 +203,8 @@
         <action name="deleteUsers" class="com.git.action.users.DeleteUsersAction">
             <result name="success" type="redirectAction">
                 <param name="actionName">listUsers</param>
+                <param name="start">${start}</param>
+                <param name="range">${range}</param>
             </result>
         </action>
         <action name="updatepUsers" class="com.git.action.users.UpdatepUsersAction">

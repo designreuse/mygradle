@@ -18,7 +18,7 @@ private UsersService usersService;
 
 	private String username ;
 
-	private Long password ;
+	private String password ;
 
 
 	public Long getId() {
@@ -37,11 +37,11 @@ private UsersService usersService;
 		this.username = username;
 	}
 
-	public Long getPassword() {
+	public String getPassword() {
 		return password;
 	}
 
-	public void setPassword(Long password) {
+	public void setPassword(String password) {
 		this.password = password;
 	}
 

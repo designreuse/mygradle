@@ -9,7 +9,7 @@
             <generator class="increment"></generator>
         </id>
         <property name="username" column="username_"  type="java.lang.String" length="50"/>
-        <property name="password" column ="password_" type="java.lang.Long" />
+        <property name="password" column ="password_" type="java.lang.String" />
 
     </class>
 </hibernate-mapping>

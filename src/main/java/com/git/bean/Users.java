@@ -1,5 +1,5 @@
 package com.git.bean;
-// Generated 2017-10-14 22:43:18 by Hibernate Tools 3.2.1.GA
+// Generated 2017-10-15 20:11:36 by Hibernate Tools 3.2.1.GA
 
 
 
@@ -11,12 +11,12 @@ public class Users implements java.io.Serializable {
 
      private Long id;
      private String username;
-     private Long password;
+     private String password;
 
     public Users() {
     }
 
-    public Users(String username, Long password) {
+    public Users(String username, String password) {
        this.username = username;
        this.password = password;
     }
@@ -35,11 +35,11 @@ public class Users implements java.io.Serializable {
     public void setUsername(String username) {
         this.username = username;
     }
-    public Long getPassword() {
+    public String getPassword() {
         return this.password;
     }
     
-    public void setPassword(Long password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
