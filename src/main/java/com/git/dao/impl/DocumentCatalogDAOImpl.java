@@ -34,12 +34,20 @@ public class DocumentCatalogDAOImpl implements com.git.dao.DocumentCatalogDAO {
     @Override
     public void saveChildDocumentCatalog(DocumentCatalog parent, DocumentCatalog child) {
         //将瞬时状态的parent重新关联到另一个session上
-        sessionFactory.openSession().lock(parent,LockMode.NONE);
-
+        parent.setLeaf(false);
         child.setParent(parent);
         parent.getChildren().add(child);
         sessionFactory.getCurrentSession().save(child);
 
+    }
+
+    @Override
+    public void saveChildDocumentCatalog(long parentId, DocumentCatalog child) {
+        DocumentCatalog parent = this.getDocumentCatalog(parentId);
+        parent.setLeaf(false);
+        child.setParent(parent);
+        parent.getChildren().add(child);
+        sessionFactory.getCurrentSession().save(child);
     }
 
     @Override

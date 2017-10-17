@@ -14,6 +14,7 @@ public interface DocumentCatalogDAO {
      void saveDocumentCatalog(DocumentCatalog bean);
 
      void saveChildDocumentCatalog(DocumentCatalog parent,DocumentCatalog child);
+     void saveChildDocumentCatalog(long parentId,DocumentCatalog child);
 
 
 

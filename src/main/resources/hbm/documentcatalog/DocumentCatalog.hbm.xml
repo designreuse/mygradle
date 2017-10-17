@@ -12,6 +12,7 @@
         <property name="name" type="java.lang.String" column="name_" length="50"></property>
         <property name="date" type="timestamp" column="date_"></property>
         <property name="flag" type="boolean" column="flag_"></property>
+        <property name="leaf" type="boolean" column="leaf_"></property>
 
         <property name="authorId" type="java.lang.Long" column="authorId_"></property>
         <property name="authorName" type="java.lang.String" column="authorName_" length="50"></property>

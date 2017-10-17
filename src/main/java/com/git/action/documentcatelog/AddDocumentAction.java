@@ -108,6 +108,7 @@ public class AddDocumentAction extends ActionSupport {
         bean.setDate(new Date());
         bean.setOrder(order);
         bean.setType(type);
+        bean.setLeaf(true);
         bean.setAuthorId(1l);
         bean.setAuthorName("lihao");
 
@@ -127,8 +128,7 @@ public class AddDocumentAction extends ActionSupport {
 
         if(-1 != parentId) { //子目录
 
-            DocumentCatalog parent = this.documentCatalogService.getDocumentCatalog(parentId);
-            this.documentCatalogService.saveChildDocumentCatalog(parent,bean);
+            this.documentCatalogService.saveChildDocumentCatalog(parentId,bean);
 
         } else {
             documentCatalogService.saveDocumentCatalog(bean);

@@ -21,6 +21,8 @@ public class DocumentCatalog {
     private String content;
     private String address;
 
+    private boolean leaf;
+
     public Long getId() {
         return id;
     }
@@ -123,5 +125,13 @@ public class DocumentCatalog {
 
     public void setItems(Set<DocumentitemEntity> items) {
         this.items = items;
+    }
+
+    public boolean isLeaf() {
+        return leaf;
+    }
+
+    public void setLeaf(boolean leaf) {
+        this.leaf = leaf;
     }
 }
