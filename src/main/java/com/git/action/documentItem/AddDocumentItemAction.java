@@ -151,7 +151,7 @@ public class AddDocumentItemAction extends ActionSupport {
                     os.write(buffer,0,len);
 
                     //模拟延时
-                    Thread.sleep(50);
+//                    Thread.sleep(50);
 
                     //当前一共读取了多少字节
 //                    info.setHasRead(info.getHasRead()+len);

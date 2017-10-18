@@ -2,6 +2,7 @@ package com.git.service;
 
 import com.git.bean.DocumentCatalog;
 
+import java.io.File;
 import java.util.List;
 
 /**
@@ -17,6 +18,7 @@ public interface DocumentCatalogService {
 
      List<DocumentCatalog> listDocumentCatalogByTypeAndParentId(int type, long parentId);
      void deleteDocumentCatalog(long id);
+     void deleteDocumentCatalog(File directory,long id);
 
      void updateDocumentUpById(long id);
      void updateDocumentDownById(long id);

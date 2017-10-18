@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.transaction.Transactional;
+import java.io.File;
 import java.util.List;
 
 /**
@@ -52,6 +53,12 @@ public class DocumentCatalogServiceImpl implements DocumentCatalogService {
     @Transactional
     public void deleteDocumentCatalog(long id) {
         documentCatalogDAO.deleteDocumentCatalog(id);
+    }
+
+    @Override
+    @Transactional
+    public void deleteDocumentCatalog(File directory, long id) {
+        documentCatalogDAO.deleteDocumentCatalog(directory,id);
     }
 
     @Override
