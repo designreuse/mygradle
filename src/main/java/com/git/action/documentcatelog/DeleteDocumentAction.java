@@ -1,7 +1,12 @@
 package com.git.action.documentcatelog;
 
 import com.git.service.DocumentCatalogService;
+import com.git.util.FileStorage;
 import com.opensymphony.xwork2.ActionSupport;
+import org.apache.struts2.ServletActionContext;
+
+import javax.servlet.http.HttpServletRequest;
+import java.io.File;
 
 /**
  * Created by lixueqin on 2017/9/22.
@@ -50,7 +55,12 @@ public class DeleteDocumentAction extends ActionSupport {
 
     @Override
     public String execute() throws Exception {
-        documentCatalogService.deleteDocumentCatalog(id);
+
+        HttpServletRequest request = ServletActionContext.getRequest();
+        File directory = new File(FileStorage.getDocumentItemStorage(request));
+        documentCatalogService.deleteDocumentCatalog(directory,id);
+
+
         return "success";
     }
 }

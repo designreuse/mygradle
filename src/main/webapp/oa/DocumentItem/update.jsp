@@ -23,17 +23,22 @@
     <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
         <h3><a href="" class="actionBtn">文档分类</a>添加分类</h3>
 
-        <span style="color: red">${actionErrors[0]}</span>
-        <form action="${pageContext.request.contextPath}/DocumentItem/upload" method="post" id="forms" enctype="multipart/form-data">
+        <span style="color: red">${fieldErrors['error'][0]}</span>
+        <form action="${pageContext.request.contextPath}/oa/DocumentItem/update" method="post" id="forms" enctype="multipart/form-data">
             <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
 
+                <tr>
+                    <td align="right"></td>
+                    <td>
+                        <span style="padding-bottom: 20px;"><font color="red">${fieldErrors['show'][0]}</font> </span>
 
+                    </td>
+                </tr>
                 <tr>
                     <td align="right">上传文件</td>
                     <td>
                         <input type="file" name="file" size="38" class="inpFlie">
-                        <img src="${pageContext.request.contextPath}/images/action_btn.gif" style="cursor: pointer"
-                             @click="add">
+
                     </td>
                 </tr>
                 <tr class="close" ></tr>
@@ -45,6 +50,7 @@
                     <td></td>
                     <td>
                         <input type="hidden" name="documentCatalogId" value="<s:property value="documentCatalogId"/>">
+                        <input type="hidden" name="itemId" value="<s:property value="itemId"/>">
                         <input name="submit" class="btn" type="submit" value="提交"/>
                     </td>
                 </tr>

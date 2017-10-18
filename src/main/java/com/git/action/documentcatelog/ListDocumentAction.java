@@ -48,6 +48,9 @@ public class ListDocumentAction extends ActionSupport {
     public String execute() throws Exception {
         List<DocumentCatalog> list = documentCatalogService.listDocumentCatalogByTypeAndParentId(type, parentId);
 
+        list.forEach(d->{
+            System.out.println(d.getName()+"  --->  "+d.isLeaf());
+        });
         Map<String, Object> request = (Map<String, Object>) ActionContext.getContext().get("request");
         request.put("list",list);
 

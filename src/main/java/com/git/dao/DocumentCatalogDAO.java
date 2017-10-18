@@ -3,6 +3,7 @@ package com.git.dao;
 import com.git.bean.DocumentCatalog;
 import org.omg.CORBA.portable.ValueOutputStream;
 
+import java.io.File;
 import java.util.List;
 
 /**
@@ -14,12 +15,14 @@ public interface DocumentCatalogDAO {
      void saveDocumentCatalog(DocumentCatalog bean);
 
      void saveChildDocumentCatalog(DocumentCatalog parent,DocumentCatalog child);
+     void saveChildDocumentCatalog(long parentId,DocumentCatalog child);
 
 
 
      List<DocumentCatalog> listDocumentCatalogByTypeAndParentId(int type, long parentId);
 
      void deleteDocumentCatalog(long id);
+     void deleteDocumentCatalog(File directory, long id);
 
      void updateDocumentUpById(long id);
      void updateDocumentDownById(long id);

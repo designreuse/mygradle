@@ -19,22 +19,22 @@
         <div id="mMenu">
             <h3>手机版</h3>
             <ul>
-                <li><a href="${pageContext.request.contextPath}/catelog_list.action?type=1&parentId=-1" class="cur">公司文档</a></li>
-                <li><a href="${pageContext.request.contextPath}/catelog_list.action?type=2&parentId=-1">部门文档</a></li>
-                <li><a href="${pageContext.request.contextPath}/catelog_list.action?type=3&parentId=-1">协作文档</a></li>
-                <li><a href="${pageContext.request.contextPath}/catelog_list.action?type=4&parentId=-1">共享文档</a></li>
-                <li><a href="${pageContext.request.contextPath}/catelog_list.action?type=5&parentId=-1">培训文档</a></li>
+                <li><a href="${pageContext.request.contextPath}/oa/catelog_list.action?type=1&parentId=-1" class="cur">公司文档</a></li>
+                <li><a href="${pageContext.request.contextPath}/oa/catelog_list.action?type=2&parentId=-1">部门文档</a></li>
+                <li><a href="${pageContext.request.contextPath}/oa/catelog_list.action?type=3&parentId=-1">协作文档</a></li>
+                <li><a href="${pageContext.request.contextPath}/oa/catelog_list.action?type=4&parentId=-1">共享文档</a></li>
+                <li><a href="${pageContext.request.contextPath}/oa/catelog_list.action?type=5&parentId=-1">培训文档</a></li>
             </ul>
         </div>
 
         <div id="mMain">
             <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
-            <h3><a href="${pageContext.request.contextPath}/catelog_show_add?type=${type}&parentId=${parentId}" class="actionBtn add">添加分类</a>分类列表</h3>
+            <h3><a href="${pageContext.request.contextPath}/oa/catelog_show_add?type=${type}&parentId=${parentId}" class="actionBtn add">添加分类</a>分类列表</h3>
             <div class="filter">
                 <form action="product.php" method="post">
                     <select name="cat_id">
                         <option value="0">未分类</option>
-                     >
+
                     </select>
                     <input name="keyword" type="text" class="inpMain" value="" size="20"/>
                     <input name="submit" class="btnGray" type="submit" value="筛选"/>
@@ -48,7 +48,10 @@
                             <th width="22" align="center"><input name='chkall' type='checkbox' id='chkall'
                                                                  onclick='selectcheckbox(this.form)' value='check'></th>
                             <th width="40" align="center">编号</th>
-                            <th width="120" align="center">名称</th>
+                            <th width="120" align="center">
+                                名称
+
+                            </th>
                             <th width="80" align="center">创建日期</th>
                             <th width="80" align="center">创建者</th>
                             <th width="80" align="center">类型</th>
@@ -78,20 +81,22 @@
 
                                 <td align="center">
                                     <c:if test="${!vs.first}">
-                                        <a href="${pageContext.request.contextPath}/order_up?id=${document.id}&type=${type}&parentId=${parentId}"><img src="${pageContext.request.contextPath}/images/arrowup.gif"></a>
+                                        <a href="${pageContext.request.contextPath}/oa/order_up?id=${document.id}&type=${type}&parentId=${parentId}">
+                                            <img src="${pageContext.request.contextPath}/images/arrowup.gif" style="width: 15px;height: 15px"></a>
                                     </c:if>
 
 
                                 </td>
                                 <td align="center">
                                     <c:if test="${!vs.last}">
-                                        <a href="${pageContext.request.contextPath}/order_down?id=${document.id}&type=${type}&parentId=${parentId}"><img src="${pageContext.request.contextPath}/images/arrowdown.gif"></a>
+                                        <a href="${pageContext.request.contextPath}/oa/order_down?id=${document.id}&type=${type}&parentId=${parentId}">
+                                            <img src="${pageContext.request.contextPath}/images/arrowdown.gif" style="width: 15px;height: 15px"></a>
                                     </c:if>
 
                                 </td>
                                 <td align="center">
                                     <c:if test="${document.flag}">
-                                        <a href="${pageContext.request.contextPath}/catelog_list?type=${document.type}&parentId=${document.id}">进入</a>
+                                        <a href="${pageContext.request.contextPath}/oa/catelog_list?type=${document.type}&parentId=${document.id}">进入</a>
                                     </c:if>
                                     <c:if test="${!document.flag}">
                                         <a href="${document.address}" target="_blank">${document.content}</a>
@@ -99,13 +104,13 @@
                                 </td>
                                 <td align="center">
                                     <c:if test="${document.flag}">
-                                        <a href="${pageContext.request.contextPath}/DocumentItem/listDocumentItem?documentCatalogId=${document.id}">查看</a>
+                                        <a href="${pageContext.request.contextPath}/oa/DocumentItem/listDocumentItem?documentCatalogId=${document.id}">查看</a>
                                     </c:if>
 
                                 </td>
                                 <td align="center">
-                                    <a href="${pageContext.request.contextPath}/document_update?id=${document.id}&type=${type}&parentId=${parentId}">编辑</a> | <a
-                                        href="${pageContext.request.contextPath}/document_del?id=${document.id}&type=${type}&parentId=${parentId}">删除</a>
+                                    <a href="${pageContext.request.contextPath}/oa/document_update?id=${document.id}&type=${type}&parentId=${parentId}">编辑</a> | <a
+                                        href="${pageContext.request.contextPath}/oa/document_del?id=${document.id}&type=${type}&parentId=${parentId}">删除</a>
                                 </td>
                             </tr>
                         </c:forEach>

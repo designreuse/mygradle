@@ -15,17 +15,17 @@
         <div id="mMenu">
             <h3>手机版</h3>
             <ul>
-    <li><a href="${pageContext.request.contextPath}/catelog_list.action?type=1&parentId=-1" class="cur">公司文档</a></li>
-    <li><a href="${pageContext.request.contextPath}/catelog_list.action?type=2&parentId=-1">部门文档</a></li>
-    <li><a href="${pageContext.request.contextPath}/catelog_list.action?type=3&parentId=-1">协作文档</a></li>
-    <li><a href="${pageContext.request.contextPath}/catelog_list.action?type=4&parentId=-1">共享文档</a></li>
-    <li><a href="${pageContext.request.contextPath}/catelog_list.action?type=5&parentId=-1">培训文档</a></li>
+                <li><a href="${pageContext.request.contextPath}/oa/catelog_list.action?type=1&parentId=-1" class="cur">公司文档</a></li>
+                <li><a href="${pageContext.request.contextPath}/oa/catelog_list.action?type=2&parentId=-1">部门文档</a></li>
+                <li><a href="${pageContext.request.contextPath}/oa/catelog_list.action?type=3&parentId=-1">协作文档</a></li>
+                <li><a href="${pageContext.request.contextPath}/oa/catelog_list.action?type=4&parentId=-1">共享文档</a></li>
+                <li><a href="${pageContext.request.contextPath}/oa/catelog_list.action?type=5&parentId=-1">培训文档</a></li>
             </ul>
         </div>
 
         <div id="mMain">
             <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
-            <h3><a href="${pageContext.request.contextPath}/DocumentItem/addDocumentItem?documentCatalogId=<s:property value="documentCatalogId"/>" class="actionBtn add">添加文档</a>文档列表</h3>
+            <h3><a href="${pageContext.request.contextPath}/oa/DocumentItem/addDocumentItem?documentCatalogId=<s:property value="documentCatalogId"/>" class="actionBtn add">添加文档</a>文档列表</h3>
             <div class="filter">
                 <form action="product.php" method="post">
                     <select name="cat_id">
@@ -38,17 +38,35 @@
 
             </div>
             <div id="list">
-                <form name="action" method="post" action="${pageContext.request.contextPath}/DocumentItem/delete">
+                <form name="action" method="post" action="${pageContext.request.contextPath}/oa/DocumentItem/delete">
                     <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
                         <tr>
                             <th width="22" align="center"><input name='chkall' type='checkbox' id='chkall'
                                                                  onclick='selectcheckbox(this.form)' value='check'></th>
                             <th width="40" align="center">编号</th>
-                            <th width="120" align="center">名称</th>
+                            <th width="120" align="center">名称
+
+                                <a href="${pageContext.request.contextPath}/oa/DocumentItem/listDocumentItem?documentCatalogId=<s:property value="documentCatalogId"/>&field=name&away=asc">
+                                    <img src="${pageContext.request.contextPath}/images/arrowup.gif" style="width: 15px;height: 15px">
+                                </a>
+                                <a href="${pageContext.request.contextPath}/oa/DocumentItem/listDocumentItem?documentCatalogId=<s:property value="documentCatalogId"/>&field=name&away=desc">
+                                    <img src="${pageContext.request.contextPath}/images/arrowdown.gif" style="width: 15px;height: 15px">
+                                </a>
+
+                            </th>
                             <th width="80" align="center">创建日期</th>
                             <th width="80" align="center">创建者</th>
                             <th width="80" align="center">文件类型</th>
-                            <th width="80" align="center">文件大小</th>
+          2                  <th width="100" align="center">文件大小
+                                <a href="${pageContext.request.contextPath}/oa/DocumentItem/listDocumentItem?documentCatalogId=<s:property value="documentCatalogId"/>&field=realSize&away=asc">
+                                    <img src="${pageContext.request.contextPath}/images/arrowup.gif" style="width: 15px;height: 15px">
+                                </a>
+                                <a href="${pageContext.request.contextPath}/oa/DocumentItem/listDocumentItem?documentCatalogId=<s:property value="documentCatalogId"/>&field=realSize&away=desc">
+                                    <img src="${pageContext.request.contextPath}/images/arrowdown.gif" style="width: 15px;height: 15px">
+                                </a>
+
+
+                            </th>
                             <th width="80" align="center">操作</th>
                         </tr>
 
@@ -74,8 +92,8 @@
 
 
                                 <td align="center">
-                                    <a href="${pageContext.request.contextPath}/DocumentItem/showupdate?itemId=<s:property value="id" />&documentCatalogId=${param['documentCatalogId']}">更新</a> | <a
-                                        href="${pageContext.request.contextPath}/DocumentItem/download?documentItemId=<s:property value="id" />">下载</a>
+                                    <a href="${pageContext.request.contextPath}/oa/DocumentItem/showupdate?itemId=<s:property value="id" />&documentCatalogId=${param['documentCatalogId']}">更新</a> | <a
+                                        href="${pageContext.request.contextPath}/oa/DocumentItem/download?documentItemId=<s:property value="id" />">下载</a>
                                 </td>
                             </tr>
                             </s:iterator>

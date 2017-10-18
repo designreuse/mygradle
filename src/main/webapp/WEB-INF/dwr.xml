@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dwr PUBLIC "-//GetAhead Limited//DTD Direct Web Remoting 2.0//EN" "http://getahead.org/dwr/dwr20.dtd">
+<dwr>
+    <allow>
+        <!--监听器-->
+        <create creator="spring" javascript="DocumentItemWatcher">
+            <param name="beanName" value="documentItemWatcher"></param>
+        </create>
+
+        <!--要转换的java bean-->
+        <convert converter="bean" match="com.git.bean.DocumentItemUploadInfo"></convert>
+
+    </allow>
+</dwr>

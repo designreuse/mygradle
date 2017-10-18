@@ -19,9 +19,25 @@ public class ListDocumentItemAction extends ActionSupport {
     private long documentCatalogId;
 
     private List<DocumentitemEntity> list;
+    private String field;
+    private String away;
 
 
-    private File file;
+    public String getField() {
+        return field;
+    }
+
+    public void setField(String field) {
+        this.field = field;
+    }
+
+    public String getAway() {
+        return away;
+    }
+
+    public void setAway(String away) {
+        this.away = away;
+    }
 
     public long getDocumentCatalogId() {
         return documentCatalogId;
@@ -41,7 +57,14 @@ public class ListDocumentItemAction extends ActionSupport {
 
     @Override
     public String execute() throws Exception {
-        setList(documentItemService.listDocumentItmesByDocumentCatalogId(documentCatalogId));
+//        setList(documentItemService.listDocumentItmesByDocumentCatalogId(documentCatalogId));
+
+        if(null == field) {
+            field = "id";
+            away="desc";
+        }
+        setList(documentItemService.listDocumentItmesBySort(documentCatalogId,field,away));
+
         list.forEach(bean->{
             bean.setIconType(documentItemService.getIconType(bean.getType()));
         });

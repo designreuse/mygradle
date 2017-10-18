@@ -43,14 +43,34 @@
         <!--<servlet-name>myservlet</servlet-name>-->
         <!--<url-pattern>/myservlet</url-pattern>-->
     <!--</servlet-mapping>-->
+
+
+    <servlet>
+        <servlet-name>dwr-invoker</servlet-name>
+        <servlet-class>org.directwebremoting.servlet.DwrServlet</servlet-class>
+        <init-param>
+            <param-name>debug</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </servlet>
+
+
+
+
     <filter>
         <filter-name>struts2</filter-name>
         <filter-class>org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>struts2</filter-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>/oa/*</url-pattern>
+
     </filter-mapping>
+    <servlet-mapping>
+        <servlet-name>dwr-invoker</servlet-name>
+        <url-pattern>/dwr/*</url-pattern>
+    </servlet-mapping>
+
 
 
     <servlet>
@@ -58,4 +78,7 @@
         <servlet-class>com.git.servlet.DeleteServlet</servlet-class>
         <load-on-startup>8</load-on-startup>
     </servlet>
+
+
+
 </web-app>

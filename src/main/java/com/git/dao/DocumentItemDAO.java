@@ -23,4 +23,5 @@ public interface DocumentItemDAO {
 
     void updateDocumentItem(DocumentitemEntity entity);
 
+    List<DocumentitemEntity> listDocumentItmesBySort(long documentCatalogId,String filed,String away);
 }

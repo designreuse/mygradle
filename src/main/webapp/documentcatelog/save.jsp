@@ -22,7 +22,7 @@
     <div id="urHere">DouPHP 管理中心<b>></b><strong>添加分类</strong></div>
     <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
         <h3><a href="product_category.php" class="actionBtn">文档分类</a>添加分类</h3>
-        <form action="catelog_add" method="post" id="forms">
+        <form action="${pageContext.request.contextPath}/oa/catelog_add" method="post" id="forms">
             <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
 
                 <tr>

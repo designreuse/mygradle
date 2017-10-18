@@ -14,8 +14,8 @@
   <body>
 
   <h1 style="color: red"> Operation List</h1>
-  <s:a href="save.jsp"> Save User</s:a> <br/> <br/>
-  <s:a href="user_list">List Users</s:a>
+
+  <a href="${pageContext.request.contextPath}/oa/user_list" >List Users<a>
 
 
   </body>

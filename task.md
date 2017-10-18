@@ -1,5 +1,7 @@
 ## applicationContext 配置
 
+
+
 #### 扫描组件
 可以用注解注册bean，bean 不用在xml中注册
 ```
@@ -159,6 +161,8 @@ age=\u5e74\u9f84
 <s:property value="%{getText('firstname')}" />
 
 ```
+#### 使用技巧
+1，不能把request 放到service，service 不需要知道上层是什么应用。
 ------------------2017.09.19---------------------
 
 valid
@@ -326,4 +330,21 @@ type    普通用户 还是管理员
          
 ## 更新文件名
 文件可以跟当前文件重名 不能跟其他文件重名
-         
+
+## DWR
+    DWR 是一种ajax解决方案
+    DWR 包括一个java库，以及一套javascript，使得我们可以用一种非常简单的方式，在页面上
+    使用JavaScript直接调用后台的java对象！
+    
+####    DWR架构
+    DWR的javascript库包括几个部分：dwr的javascript引擎（即对AJAX调用的封装）、
+    dwr提供的一些非常有用的辅助javascript函数库、以及dwr自动帮我们生成的专门用于调用后台JavaBean方法的javascript库！ 
+   
+    Dwr在运行的时候，动态生成一个javascript库，这个库是对后台javabean调用的封装，我
+    们可以直接使用这个库来实现直接调用JavaBean的目的！
+ 
+ 
+ 
+ #### 10月16日
+ 1，让用户选择每页显示多少条
+ 2,修改删除文件业务逻辑 比如先删除了文件        

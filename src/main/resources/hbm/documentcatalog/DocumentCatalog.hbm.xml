@@ -12,6 +12,7 @@
         <property name="name" type="java.lang.String" column="name_" length="50"></property>
         <property name="date" type="timestamp" column="date_"></property>
         <property name="flag" type="boolean" column="flag_"></property>
+        <property name="leaf" type="boolean" column="leaf_"></property>
 
         <property name="authorId" type="java.lang.Long" column="authorId_"></property>
         <property name="authorName" type="java.lang.String" column="authorName_" length="50"></property>
@@ -26,7 +27,7 @@
             <one-to-many class="com.git.bean.DocumentCatalog"></one-to-many>
         </set>
 
-        <set name="items" table="documentitem" cascade="all-delete-orphan" lazy="true" order-by="id desc">
+        <set name="items" table="documentitem" cascade="all-delete-orphan"  lazy="true" order-by="id desc">
             <key column="documentCatalogId_"></key>
             <one-to-many class="com.git.bean.DocumentitemEntity"></one-to-many>
         </set>

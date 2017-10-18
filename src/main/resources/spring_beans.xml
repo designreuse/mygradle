@@ -15,7 +15,7 @@
 >
 
 
-
+<bean id="documentItemWatcher" class="com.git.action.documentItem.DocumentItemWatcher" scope="prototype"></bean>
 
 
 </beans>

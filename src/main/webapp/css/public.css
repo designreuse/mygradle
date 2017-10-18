@@ -651,7 +651,7 @@ select {
  background: url(../images/icon_picture_big.png) no-repeat left bottom;
 }
 #maskBox #success {
- background: #60BBFF url();
+ background: #60BBFF ;
  display: none;
  width: 60px;
  padding: 0 10px;
@@ -755,6 +755,33 @@ select {
 .page dd a {
  color: #999;
 }
+
+
+/*分页样式*/
+
+.pager a {
+ border: 1px solid #e1e2e3;
+
+ text-decoration: none;
+ display: inline-block;
+ margin: 5px;
+ height: 34px;
+ width: 34px;
+ text-align: center;
+ line-height: 34px;
+ text-decoration: none;
+}
+
+
+
+.pager b {
+ display: inline-block;
+ width: 34px;
+ height: 34px;
+ text-align: center;
+ line-height: 34px;
+}
+
 /* 首页商品筛选
 ----------------------------------------------- */
 .homeSortLeft {
