@@ -78,6 +78,7 @@
             <result name="showadd">/documentcatelog/save.jsp</result>
 
         </action>
+        <action name="treedocument" class="com.git.action.documentcatelog.TreeDocumentAction"></action>
 
 
         <action name="catelog_list" class="com.git.action.documentcatelog.ListDocumentAction">

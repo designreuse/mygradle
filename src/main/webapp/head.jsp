@@ -12,7 +12,7 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/vue-2.1.8.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/global.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.autotextarea.js"></script>
+    <%--<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.autotextarea.js"></script>--%>
 </head>
 <body>
 <div id="dcWrap">

@@ -24,6 +24,7 @@
                 <li><a href="${pageContext.request.contextPath}/oa/catelog_list.action?type=3&parentId=-1">协作文档</a></li>
                 <li><a href="${pageContext.request.contextPath}/oa/catelog_list.action?type=4&parentId=-1">共享文档</a></li>
                 <li><a href="${pageContext.request.contextPath}/oa/catelog_list.action?type=5&parentId=-1">培训文档</a></li>
+                <li><a href="${pageContext.request.contextPath}/documentcatelog/listtree.jsp?type=1&parentId=-1">公司文档图</a></li>
             </ul>
         </div>
 
