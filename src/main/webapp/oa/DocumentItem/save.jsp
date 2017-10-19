@@ -121,7 +121,7 @@
     function startUpload() {
 
         $("#progressBar").css("display", "")
-        setTimeout("refreshProgress()", 1000)
+        setTimeout("refreshProgress()", 500)
     }
 
     function refreshProgress() {
