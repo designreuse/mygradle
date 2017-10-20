@@ -24,6 +24,9 @@ public class DocumentItemServiceImpl implements DocumentItemService {
     @Resource
     DocumentItemDAO documentItemDAO;
 
+    @Resource
+    DocumentCatalogDAO documentCatalogDAO;
+
 
     @Override
     @Transactional
@@ -40,7 +43,14 @@ public class DocumentItemServiceImpl implements DocumentItemService {
     @Override
     @Transactional
     public void saveDocumentItems(DocumentCatalog documentCatalog, List<DocumentitemEntity> items) {
+
         documentItemDAO.saveDocumentItems(documentCatalog,items);
+        if(items.size() > 0) {
+            documentCatalog.setLeaf(false);
+
+            documentCatalogDAO.updateDocument(documentCatalog);
+        }
+
     }
 
     @Override

@@ -55,7 +55,6 @@ public class DocumentItemDAOImpl implements DocumentItemDAO {
         Set<DocumentitemEntity> set = new HashSet<>(items);
         documentCatalog.setItems(set);
 
-
         for (DocumentitemEntity entity : items) {
 
             entity.setDocumentCatalog(documentCatalog);

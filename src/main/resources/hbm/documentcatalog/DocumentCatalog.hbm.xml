@@ -27,7 +27,7 @@
             <one-to-many class="com.git.bean.DocumentCatalog"></one-to-many>
         </set>
 
-        <set name="items" table="documentitem" cascade="all-delete-orphan"  lazy="true" order-by="id desc">
+        <set name="items" table="documentitem" cascade="all-delete-orphan" inverse="true"   lazy="true" order-by="id desc">
             <key column="documentCatalogId_"></key>
             <one-to-many class="com.git.bean.DocumentitemEntity"></one-to-many>
         </set>
