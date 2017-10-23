@@ -8,11 +8,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+
 <jsp:include page="/head.jsp"></jsp:include>
 
 <link href="${pageContext.request.contextPath}/css/jstree/default/style.min.css" rel="stylesheet"
       type="text/css">
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/jstree.js"></script>
+
 
 <jsp:include page="/left.jsp"></jsp:include>
 <div id="dcMain">
@@ -53,24 +54,132 @@
 </div>
 
 <jsp:include page="/footer.jsp"></jsp:include>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jstree.min.js"></script>
 <script type="text/javascript">
 
     $(function () {
-        var   parentId = ${param.parentId}
+        var parentId =
+        ${param.parentId}
         var src = "${pageContext.request.contextPath}/oa/treedocument?type=${param.type}";
 
-       var tree = $('#jstree').jstree({
+        var tree = $('#jstree1').jstree({
             'core': {
                 'data': {
                     "url": src,
                     "dataType": "json",// needed only if you do not supply JSON
                     'data': function (node) {
-                        src = "${pageContext.request.contextPath}/oa/treedocument?type=${param.type}"
-                        if('#'!=node.id) {
+                        <%--src = "${pageContext.request.contextPath}/oa/treedocument?type=${param.type}"--%>
+                        if ('#' != node.id) {
                             parentId = node.original.parentId;
                         }
 
-                        return {'parentId':parentId,'id': node.id};
+                        return {'parentId': parentId, 'id': node.id};
+                    },
+                    'check_callback': function (o, n, p, i, m) {
+                        if (m && m.dnd && m.pos !== 'i') {
+                            return false;
+                        }
+                        if (o === "move_node" || o === "copy_node") {
+                            if (this.get_node(n).parent === this.get_node(p).id) {
+                                return false;
+                            }
+                        }
+                        return true;
+                    },
+                    'check_callback' : function(o, n, p, i, m) {
+                        if(m && m.dnd && m.pos !== 'i') { return false; }
+                        if(o === "move_node" || o === "copy_node") {
+                            if(this.get_node(n).parent === this.get_node(p).id) { return false; }
+                        }
+                        return true;
+                    },
+                    'themes': {
+                        'responsive': false,
+                        'variant': 'small',
+                        'stripes': true
+                    }
+
+                }
+
+            },
+            'sort': function (a, b) {
+                return this.get_type(a) === this.get_type(b) ? (this.get_text(a) > this.get_text(b) ? 1 : -1) : (this.get_type(a) >= this.get_type(b) ? 1 : -1);
+            },
+            'contextmenu': {
+                'items': function (node) {
+                    var tmp = $.jstree.defaults.contextmenu.items();
+                    delete tmp.create.action;
+                    tmp.create.label = "New";
+                    tmp.create.submenu = {
+                        "create_folder": {
+                            "separator_after": true,
+                            "label": "Folder",
+                            "action": function (data) {
+                                var inst = $.jstree.reference(data.reference),
+                                    obj = inst.get_node(data.reference);
+                                inst.create_node(obj, { type : "default" }, "last", function (new_node) {
+                                    setTimeout(function () { inst.edit(new_node); },0);
+                                });
+                            }
+                        },
+                        "create_file": {
+                            "label": "File",
+                            "action": function (data) {
+                                var inst = $.jstree.reference(data.reference),
+                                    obj = inst.get_node(data.reference);
+                                inst.create_node(obj, {type: "file"}, "last", function (new_node) {
+                                    setTimeout(function () {
+                                        inst.edit(new_node);
+                                    }, 0);
+                                });
+                            }
+                        }
+                    };
+                    if (this.get_type(node) === "file") {
+                        delete tmp.create;
+                    }
+                    return tmp;
+                }
+            },
+            'types': {
+                'default': {'icon': 'folder'},
+                'file': {'valid_children': [], 'icon': 'file'}
+            },
+            'unique': {
+                'duplicate': function (name, counter) {
+                    return name + ' ' + counter;
+                }
+            },
+            'plugins': ['state','dnd','sort','types','contextmenu','unique']
+            //,"checkbox"
+
+        })
+
+
+
+//        tree.open_all();
+
+
+
+
+
+
+
+
+
+
+
+        $('#jstree')
+            .jstree({
+                'core' : {
+                    'data' : {
+                        'url' : src,
+                        'data' : function (node) {
+                            if ('#' != node.id) {
+                                parentId = node.original.parentId;
+                            }
+                            return {'parentId': parentId, 'id': node.id};
+                        }
                     },
                     'check_callback' : function(o, n, p, i, m) {
                         if(m && m.dnd && m.pos !== 'i') { return false; }
@@ -84,155 +193,78 @@
                         'variant' : 'small',
                         'stripes' : true
                     }
-
-                }
-
-            },
-            'sort' : function(a, b) {
-                return this.get_type(a) === this.get_type(b) ? (this.get_text(a) > this.get_text(b) ? 1 : -1) : (this.get_type(a) >= this.get_type(b) ? 1 : -1);
-            },
-            'contextmenu' : {
-                'items' : function(node) {
-                    var tmp = $.jstree.defaults.contextmenu.items();
-                    delete tmp.create.action;
-                    tmp.create.label = "New";
-                    tmp.create.submenu = {
-                        "create_folder" : {
-                            "separator_after"	: true,
-                            "label"				: "Folder",
-                            "action"			: function (data) {
-                                var inst = $.jstree.reference(data.reference),
-                                    obj = inst.get_node(data.reference);
-                                inst.edit(obj)
-
-                                inst.create_node(obj, { type : "default" }, "last", function (new_node) {
-//                                    setTimeout(function () { inst.edit(new_node); },0);
-                                    alert(new_node.id)
-                                },true);
+                },
+                'sort' : function(a, b) {
+                    return this.get_type(a) === this.get_type(b) ? (this.get_text(a) > this.get_text(b) ? 1 : -1) : (this.get_type(a) >= this.get_type(b) ? 1 : -1);
+                },
+                'contextmenu' : {
+                    'items' : function(node) {
+                        var tmp = $.jstree.defaults.contextmenu.items();
+                        delete tmp.create.action;
+                        tmp.create.label = "New";
+                        tmp.create.submenu = {
+                            "create_folder" : {
+                                "separator_after"	: true,
+                                "label"				: "Folder",
+                                "action"			: function (data) {
+                                    var inst = $.jstree.reference(data.reference),
+                                        obj = inst.get_node(data.reference);
+                                    inst.create_node(obj, { type : "default" }, "last", function (new_node) {
+                                        setTimeout(function () { inst.edit(new_node); },0);
+                                    });
+                                }
+                            },
+                            "create_file" : {
+                                "label"				: "File",
+                                "action"			: function (data) {
+                                    var inst = $.jstree.reference(data.reference),
+                                        obj = inst.get_node(data.reference);
+                                    inst.create_node(obj, { type : "file" }, "last", function (new_node) {
+                                        setTimeout(function () { inst.edit(new_node); },0);
+                                    });
+                                }
                             }
-                        },
-                        "create_file" : {
-                            "label"				: "File",
-                            "action"			: function (data) {
-                                var inst = $.jstree.reference(data.reference),
-                                    obj = inst.get_node(data.reference);
-                                inst.create_node(obj, { type : "file" }, "last", function (new_node) {
-                                    setTimeout(function () { inst.edit(new_node); },0);
-                                });
-                            }
+                        };
+                        if(this.get_type(node) === "file") {
+                            delete tmp.create;
                         }
-                    };
-                    if(this.get_type(node) === "file") {
-                        delete tmp.create;
+                        return tmp;
                     }
-                    return tmp;
-                }
-            },
-            'types' : {
-                'default' : { 'icon' : 'folder' },
-                'file' : { 'valid_children' : [], 'icon' : 'file' }
-            },
-            'unique' : {
-                'duplicate' : function (name, counter) {
-                    return name + ' ' + counter;
-                }
-            },
-            'plugins' : ['state','dnd','sort','types','contextmenu','unique']
-
-        }).on('changed.jstree', function (e, data) {
-            <%--console.log("data:  " + data)--%>
-
-            <%--var parentId = data.node.original.parentId;--%>
-            <%--var parentName = data.node.original.id;--%>
-            <%--if (!parentName) {--%>
-                <%--parentName = data.node.original.text;--%>
-            <%--}--%>
-            <%--src = "${pageContext.request.contextPath}/oa/treedocument?type=${param.type}&parentId=" + parentId + "&parentName=" + parentName;--%>
-
-        }).on('before_open.jstree', function (e, data) {
-            <%--var parentId = data.node.original.parentId;--%>
-            <%--var parentName = data.node.original.id;--%>
-            <%--if (!parentName) {--%>
-                <%--parentName = data.node.original.text;--%>
-            <%--}--%>
-            <%--src = "${pageContext.request.contextPath}/oa/treedocument?type=${param.type}&parentId=" + parentId + "&parentName=" + parentName;--%>
-
-            <%--alert(src);--%>
-            <%--data.instance.refresh();--%>
-            alert("before_open "+data.node.id );
-
-        })
-        .on('move_node.jstree', function (e, data) {
-//                $.get('?operation=move_node', { 'id' : data.node.id, 'parent' : data.parent })
-//                    .done(function (d) {
-//                        //data.instance.load_node(data.parent);
-//                        data.instance.refresh();
-//                    })
-//                    .fail(function () {
-//                        data.instance.refresh();
-//                    });
-            alert("move_node "+data.node.id );
+                },
+                'types' : {
+                    'default' : { 'icon' : 'folder' },
+                    'file' : { 'valid_children' : [], 'icon' : 'file' }
+                },
+                'unique' : {
+                    'duplicate' : function (name, counter) {
+                        return name + ' ' + counter;
+                    }
+                },
+                'plugins' : ['state','dnd','sort','types','contextmenu','unique']
+            })
+            .on('delete_node.jstree', function (e, data) {
+               alert('delete_node');
             })
             .on('create_node.jstree', function (e, data) {
-//                $.get('?operation=create_node', { 'type' : data.node.type, 'id' : data.node.parent, 'text' : data.node.text })
-//                    .done(function (d) {
-//                        data.instance.set_id(data.node, d.id);
-//                    })
-//                    .fail(function () {
-//                        data.instance.refresh();
-//                    });
-                alert("create_node "+data.node.id );
+                alert('create_node');
             })
             .on('rename_node.jstree', function (e, data) {
-//                $.get('?operation=rename_node', { 'id' : data.node.id, 'text' : data.text })
-//                    .done(function (d) {
-//                        data.instance.set_id(data.node, d.id);
-//                    })
-//                    .fail(function () {
-//                        data.instance.refresh();
-//                    });
-                alert('rename_node  '+data.node.id)
+                alert('rename_node');
             })
             .on('move_node.jstree', function (e, data) {
-//                $.get('?operation=move_node', { 'id' : data.node.id, 'parent' : data.parent })
-//                    .done(function (d) {
-//                        //data.instance.load_node(data.parent);
-//                        data.instance.refresh();
-//                    })
-//                    .fail(function () {
-//                        data.instance.refresh();
-//                    });
-                alert('move_node  '+data.node.id)
+                alert('move_node');
             })
             .on('copy_node.jstree', function (e, data) {
-//                $.get('?operation=copy_node', { 'id' : data.original.id, 'parent' : data.parent })
-//                    .done(function (d) {
-//                        //data.instance.load_node(data.parent);
-//                        data.instance.refresh();
-//                    })
-//                    .fail(function () {
-//                        data.instance.refresh();
-//                    });
-
-                alert('copy_node  '+data.node.id)
+                alert('copy_node');
             })
+            .on('changed.jstree', function (e, data) {
+//                alert('changed');
 
-
-
-
-
-
-
-
-
-
-
+            });
 
 
 
     })
-
-
 
 
 </script>

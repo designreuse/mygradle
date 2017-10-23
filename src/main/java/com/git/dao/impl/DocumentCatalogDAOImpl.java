@@ -1,6 +1,8 @@
 package com.git.dao.impl;
 
 import com.git.bean.DocumentCatalog;
+import com.git.exception.EngineException;
+import com.git.exception.ErrorCode;
 import com.git.util.FileUtility;
 import org.apache.commons.io.FileUtils;
 import org.aspectj.util.FileUtil;
@@ -77,13 +79,20 @@ public class DocumentCatalogDAOImpl implements com.git.dao.DocumentCatalogDAO {
     }
 
     @Override
-    public void deleteDocumentCatalog(long id) {
-        DocumentCatalog bean = sessionFactory.getCurrentSession().get(DocumentCatalog.class, id);
-        sessionFactory.getCurrentSession().delete(bean);
+    public void deleteDocumentCatalog(long id) throws EngineException {
+        try {
+            DocumentCatalog bean = sessionFactory.getCurrentSession().get(DocumentCatalog.class, id);
+            sessionFactory.getCurrentSession().delete(bean);
+
+        } catch (Exception ex){
+            throw  new EngineException(ErrorCode.DELETE_ROOR);
+        }
+
     }
 
     @Override
-    public void deleteDocumentCatalog(File directory, long id) {
+    public void deleteDocumentCatalog(File directory, long id) throws EngineException {
+        try {
         DocumentCatalog bean = this.getDocumentCatalog(id);
         DocumentCatalog parent = bean.getParent();
         long parentId = -1;
@@ -108,7 +117,9 @@ public class DocumentCatalogDAOImpl implements com.git.dao.DocumentCatalogDAO {
 
         //级联删除数据库中的记录
         this.deleteDocumentCatalog(id);
-
+        } catch (Exception ex){
+            throw  new EngineException(ErrorCode.DELETE_ROOR);
+        }
 
 
     }

@@ -1,5 +1,6 @@
 package com.git.action.documentcatelog;
 
+import com.git.exception.EngineException;
 import com.git.service.DocumentCatalogService;
 import com.git.util.FileStorage;
 import com.opensymphony.xwork2.ActionSupport;
@@ -17,6 +18,7 @@ public class DeleteDocumentAction extends ActionSupport {
     private long parentId;
     private int type;
 
+    private String errorMessge;
 
 
     private DocumentCatalogService documentCatalogService;
@@ -53,12 +55,29 @@ public class DeleteDocumentAction extends ActionSupport {
         this.type = type;
     }
 
-    @Override
-    public String execute() throws Exception {
+    public String getErrorMessge() {
+        return errorMessge;
+    }
 
-        HttpServletRequest request = ServletActionContext.getRequest();
-        File directory = new File(FileStorage.getDocumentItemStorage(request));
-        documentCatalogService.deleteDocumentCatalog(directory,id);
+    public void setErrorMessge(String errorMessge) {
+        this.errorMessge = errorMessge;
+    }
+
+    @Override
+    public String execute()  {
+
+        try {
+
+            HttpServletRequest request = ServletActionContext.getRequest();
+            File directory = new File(FileStorage.getDocumentItemStorage(request));
+            documentCatalogService.deleteDocumentCatalog(directory,id);
+
+
+        } catch (EngineException e) {
+           this.errorMessge = e.getMessage();
+
+           return "exception";
+        }
 
 
         return "success";

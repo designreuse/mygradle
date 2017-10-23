@@ -1,6 +1,7 @@
 package com.git.service;
 
 import com.git.bean.DocumentCatalog;
+import com.git.exception.EngineException;
 
 import java.io.File;
 import java.util.List;
@@ -17,8 +18,8 @@ public interface DocumentCatalogService {
      void saveChildDocumentCatalog(long parentId, DocumentCatalog child);
 
      List<DocumentCatalog> listDocumentCatalogByTypeAndParentId(int type, long parentId);
-     void deleteDocumentCatalog(long id);
-     void deleteDocumentCatalog(File directory,long id);
+     void deleteDocumentCatalog(long id) throws EngineException;
+     void deleteDocumentCatalog(File directgiory,long id) throws EngineException;
 
      void updateDocumentUpById(long id);
      void updateDocumentDownById(long id);

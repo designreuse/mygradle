@@ -7,6 +7,7 @@ public class Tree {
     private String text;
     private String parentName;
     private long parentId;
+    private String type;
 
     public boolean isChildren() {
         return children;
@@ -54,5 +55,13 @@ public class Tree {
 
     public void setParentId(long parentId) {
         this.parentId = parentId;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

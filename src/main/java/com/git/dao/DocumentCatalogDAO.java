@@ -1,6 +1,7 @@
 package com.git.dao;
 
 import com.git.bean.DocumentCatalog;
+import com.git.exception.EngineException;
 import org.omg.CORBA.portable.ValueOutputStream;
 
 import java.io.File;
@@ -21,8 +22,8 @@ public interface DocumentCatalogDAO {
 
      List<DocumentCatalog> listDocumentCatalogByTypeAndParentId(int type, long parentId);
 
-     void deleteDocumentCatalog(long id);
-     void deleteDocumentCatalog(File directory, long id);
+     void deleteDocumentCatalog(long id) throws EngineException;
+     void deleteDocumentCatalog(File directory, long id) throws EngineException;
 
      void updateDocumentUpById(long id);
      void updateDocumentDownById(long id);

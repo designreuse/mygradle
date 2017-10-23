@@ -2,6 +2,7 @@ package com.git.service.impl;
 
 import com.git.bean.DocumentCatalog;
 import com.git.dao.DocumentCatalogDAO;
+import com.git.exception.EngineException;
 import com.git.service.DocumentCatalogService;
 import org.springframework.stereotype.Service;
 
@@ -51,13 +52,13 @@ public class DocumentCatalogServiceImpl implements DocumentCatalogService {
 
     @Override
     @Transactional
-    public void deleteDocumentCatalog(long id) {
+    public void deleteDocumentCatalog(long id) throws EngineException {
         documentCatalogDAO.deleteDocumentCatalog(id);
     }
 
     @Override
     @Transactional
-    public void deleteDocumentCatalog(File directory, long id) {
+    public void deleteDocumentCatalog(File directory, long id) throws EngineException {
         documentCatalogDAO.deleteDocumentCatalog(directory,id);
     }
 

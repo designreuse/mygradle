@@ -94,6 +94,9 @@
                 <param name="parentId">${parentId}</param>
 
             </result>
+            <result name="exception">
+                /documentcatelog/exception.jsp
+            </result>
 
         </action>
 

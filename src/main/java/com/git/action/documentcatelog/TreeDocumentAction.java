@@ -77,6 +77,7 @@ public class TreeDocumentAction extends ActionSupport {
 
             tree.setIcon("jstree-folder");
             tree.setParentId(documentCatalog.getId());
+            tree.setType("folder");
 
             if (!StringUtils.isBlank(id)) {
                 id = id.replaceAll("#/", "");
@@ -100,7 +101,7 @@ public class TreeDocumentAction extends ActionSupport {
                 tree2.setChildren(false);
                 tree2.setIcon("jstree-file");
 
-
+                tree2.setType("file");
                 if (!StringUtils.isBlank(id)) {
                     id = id.replaceAll("#/", "");
                     tree2.setId(id + "/" + item.getName());
