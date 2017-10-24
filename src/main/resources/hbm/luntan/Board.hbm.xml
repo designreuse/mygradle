@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping
+        PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.git.bean.Board" table="board">
+        <id name="id" type="java.lang.Long" column="id">
+            <generator class="increment"></generator>
+        </id>
+
+        <property name="name" type="java.lang.String" column="name_" ></property>
+        <property name="topicCount" type="java.lang.Long" column="topicCount_" ></property>
+
+        <property name="postCount" type="java.lang.Long" column="postCount_" ></property>
+
+
+        <set name="children" table="topic" cascade="all-delete-orphan"
+             inverse="true" lazy="true" order-by="id desc">
+            <key column="parentId_"></key>
+            <one-to-many class="com.git.bean.Topic"></one-to-many>
+        </set>
+
+
+    </class>
+
+
+</hibernate-mapping>

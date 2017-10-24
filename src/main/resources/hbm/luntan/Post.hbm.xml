@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping
+        PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.git.bean.Post" table="post">
+        <id name="id" type="java.lang.Long" column="id">
+            <generator class="increment"></generator>
+        </id>
+
+        <property name="authorId" type="java.lang.Long" column="authorId_"></property>
+        <property name="authorName" type="java.lang.String" column="authorName_" length="50"></property>
+
+
+        <property name="date" type="timestamp" column="date_"></property>
+
+
+        <property name="content" type="java.lang.String" column="content_"></property>
+
+
+        <many-to-one name="parent" column="parentId_" class="com.git.bean.Topic"></many-to-one>
+
+    </class>
+
+
+</hibernate-mapping>
