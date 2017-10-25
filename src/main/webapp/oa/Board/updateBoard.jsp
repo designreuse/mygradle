@@ -21,7 +21,7 @@
 
 
                 <tr>
-                    <td align="right">name</td>
+                    <td align="right">论坛板块</td>
                     <td>
                         <input type="text" name="name" size="50" value="<s:property value='board.name' />"
                                class="inpMain">
@@ -29,36 +29,19 @@
                 <tr/>
 
                 <tr>
-                    <td align="right">description</td>
+                    <td align="right">论坛说明</td>
                     <td>
-                        <input type="text" name="description" size="50" value="<s:property value='board.description' />"
-                               class="inpMain">
+
+                        <!-- /KindEditor -->
+                        <textarea id="content" name="description" style="width:780px;height:400px;" class="textArea">
+                            <s:property value='board.description' />
+                        </textarea>
+
+
                     </td>
                 <tr/>
 
-                <tr>
-                    <td align="right">topicCount</td>
-                    <td>
-                        <input type="text" name="topicCount" size="50" value="<s:property value='board.topicCount' />"
-                               class="inpMain">
-                    </td>
-                <tr/>
 
-                <tr>
-                    <td align="right">postCount</td>
-                    <td>
-                        <input type="text" name="postCount" size="50" value="<s:property value='board.postCount' />"
-                               class="inpMain">
-                    </td>
-                <tr/>
-
-                <tr>
-                    <td align="right">children</td>
-                    <td>
-                        <input type="text" name="children" size="50" value="<s:property value='board.children' />"
-                               class="inpMain">
-                    </td>
-                <tr/>
 
 
 
@@ -83,3 +66,32 @@
 
 
 <jsp:include page="/footer.jsp"></jsp:include>
+
+<!-- KindEditor -->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/js/kindeditor/themes/default/default.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/js/kindeditor/plugins/code/prettify.css" />
+<script charset="utf-8" src="${pageContext.request.contextPath}/js/kindeditor/kindeditor.js"></script>
+<script charset="utf-8" src="${pageContext.request.contextPath}/js/kindeditor/lang/zh_CN.js"></script>
+<script charset="utf-8" src="${pageContext.request.contextPath}/js/kindeditor/plugins/code/prettify.js"></script>
+<script>
+    KindEditor.ready(function(K) {
+        var editor1 = K.create('textarea[name="description"]', {
+            cssPath : '${pageContext.request.contextPath}/js/plugins/code/prettify.css',
+            uploadJson : '${pageContext.request.contextPath}/js/php/upload_json.php',
+            fileManagerJson : '${pageContext.request.contextPath}/js/php/file_manager_json.php',
+            allowFileManager : true,
+            afterCreate : function() {
+                var self = this;
+                K.ctrl(document, 13, function() {
+                    self.sync();
+                    K('form[name=example]')[0].submit();
+                });
+                K.ctrl(self.edit.doc, 13, function() {
+                    self.sync();
+                    K('form[name=example]')[0].submit();
+                });
+            }
+        });
+        prettyPrint();
+    });
+</script>

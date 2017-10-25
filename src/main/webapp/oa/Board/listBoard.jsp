@@ -12,7 +12,7 @@
     <!-- 当前位置 -->
     <div id="urHere">DouPHP 管理中心<b>></b><strong>添加分类</strong></div>
     <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
-        <h3><a href="${pageContext.request.contextPath}/oa/Board/addBoard.jsp" class="actionBtn">添加Board</a>Board</h3>
+        <h3><a href="${pageContext.request.contextPath}/oa/Board/addBoard.jsp" class="actionBtn">添加板块</a>板块</h3>
         <div class="filter">
             <form action="product.php" method="post">
                 <select name="cat_id">
@@ -32,15 +32,16 @@
                         <th width="22" align="center"><input name='chkall' type='checkbox' id='chkall'
                                                              onclick='selectcheckbox(this.form)' value='check'></th>
                         <th width="40" align="center">编号</th>
-                        <th width="80" align="center">name</th>
+                        <th width="80" align="center">论坛板块</th>
 
-                        <th width="80" align="center">description</th>
+                        <th width="80" align="center">论坛说明</th>
 
-                        <th width="80" align="center">topicCount</th>
+                        <th width="80" align="center">主题数</th>
 
-                        <th width="80" align="center">postCount</th>
+                        <th width="80" align="center">总帖数</th>
 
-                        <th width="80" align="center">children</th>
+                        <th width="80" align="center">帖子</th>
+
 
 
                         <th width="80" align="center">操作</th>
@@ -52,13 +53,15 @@
                             <td align="center">${vs.count}</td>
                              <td align="center"><s:property value="name" /></td>
 
-                            <td align="center"><s:property value="description" /></td>
+                            <td align="center"><s:property value="description" escapeHtml="false"/></td>
 
                             <td align="center"><s:property value="topicCount" /></td>
 
                             <td align="center"><s:property value="postCount" /></td>
+                            <td align="center">
+                                <a href="${pageContext.request.contextPath}/oa/Topic/listTopic?parentId=<s:property value="id" />">进入</a>
+                            </td>
 
-                            <td align="center"><s:property value="children" /></td>
 
 
                             <td align="center">

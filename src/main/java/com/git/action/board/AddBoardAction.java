@@ -10,62 +10,39 @@ import java.util.Set;
 
 public class AddBoardAction extends ActionSupport {
 
-@Resource
-private BoardService boardService;
+    @Resource
+    private BoardService boardService;
 
 
+    private Long id;
 
-	private Long id ;
-
-	private String name ;
-
-	private Long topicCount ;
-
-	private Long postCount ;
-
-	private Set children ;
+    private String name;
+    private String description;
 
 
-	public Long getId() {
-		return id;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public Long getTopicCount() {
-		return topicCount;
-	}
+    public String getDescription() {
+        return description;
+    }
 
-	public void setTopicCount(Long topicCount) {
-		this.topicCount = topicCount;
-	}
-
-	public Long getPostCount() {
-		return postCount;
-	}
-
-	public void setPostCount(Long postCount) {
-		this.postCount = postCount;
-	}
-
-	public Set getChildren() {
-		return children;
-	}
-
-	public void setChildren(Set children) {
-		this.children = children;
-	}
-
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     @Override
     public void validate() {
@@ -73,19 +50,18 @@ private BoardService boardService;
     }
 
     @Override
-    public  String execute() throws Exception{
+    public String execute() throws Exception {
 
         Board bean = new Board();
 
-		bean.setId(id) ;
-		bean.setName(name) ;
-		bean.setTopicCount(topicCount) ;
-		bean.setPostCount(postCount) ;
-		bean.setChildren(children) ;
-		
-	this.boardService.saveBoard(bean);
+        bean.setId(id);
+        bean.setName(name);
+        bean.setDescription(description);
 
-    return SUCCESS;
+        this.boardService.saveBoard(bean);
+
+
+        return SUCCESS;
 
     }
 
