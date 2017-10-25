@@ -1,12 +1,14 @@
 package com.git.dao.impl;
 
-import com.cagf.tool.util.*;
 import com.git.bean.Board;
 import com.git.dao.BoardDAO;
+import com.git.util.BaseDAO;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
+
+// import com.git.util.*;
 
 @Repository("boardDAO")
 public class BoardDAOImpl extends BaseDAO<Board> implements BoardDAO

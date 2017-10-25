@@ -16,34 +16,36 @@ public class SHTemplate {
 
     public static void main(String[] args) throws Exception {
 
+        String hostName = "pay2";
+
         List<ShBean> lists = new ArrayList<>();
 //        ShBean shBeanes = new ShBean("elasticsearch", "file", "es");
         String command = "su  es -s /data/elasticsearch-5.5.0/bin/start.sh";
 //        shBeanes.setCommand(command);
 
 
-        ShBean nginx =  new ShBean("nginx", "insTest2", "nx");
+        ShBean nginx =  new ShBean("nginx", hostName, "nx");
         nginx.setCommand("service nginx start");
 
 
-        ShBean rabbitmq =  new ShBean("rabbitmq-server", "insTest2", "mq");
-        rabbitmq.setCommand("service rabbitmq-server start");
+//        ShBean rabbitmq =  new ShBean("rabbitmq-server", "insTestDb", "mq");
+//        rabbitmq.setCommand("service rabbitmq-server start");
 ////
-//        ShBean redis =  new ShBean("redis", "redis", "rd");
-//        redis.setCommand("service redis start");
+        ShBean redis =  new ShBean("redis", hostName, "rd");
+        redis.setCommand("service redis start");
 
 //        ShBean mongod =  new ShBean("mongod", "insMongodb", "mongo");
 //        mongod.setCommand("rm -rf /var/run/mongodb/mongod.pid \n service mongod start");
 
 
 //
-//        ShBean mysqld =  new ShBean("mysqld", "backup", "ms");
-//        mysqld.setCommand("service mysqld start");
+        ShBean mysqld =  new ShBean("mysqld", hostName, "ms");
+        mysqld.setCommand("service mysqld start");
 //
 //        ShBean memcached =  new ShBean("memcached", "cache", "mc");
 //        memcached.setCommand("service memcached start");
 
-        ShBean logstash = new ShBean("logstash", "insTest2", "log_stash");
+        ShBean logstash = new ShBean("logstash", hostName, "log_stash");
          command = "cd /data/logstash/logstash-2.4.1/\n" +
                  "    nohup bin/logstash -f conf/logstash.conf &";
         logstash.setCommand(command);
@@ -51,9 +53,9 @@ public class SHTemplate {
 //        lists.add(shBeanes);
         lists.add(nginx);
         lists.add(logstash);
-        lists.add(rabbitmq);
-//        lists.add(redis);
-//        lists.add(mysqld);
+//        lists.add(rabbitmq);
+        lists.add(redis);
+        lists.add(mysqld);
 //        lists.add(memcached);
 //        lists.add(mongod);
         lists.forEach(bean -> {

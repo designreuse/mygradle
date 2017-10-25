@@ -1,12 +1,14 @@
 package com.git.dao.impl;
 
-import com.cagf.tool.util.*;
 import com.git.bean.Topic;
 import com.git.dao.TopicDAO;
+import com.git.util.BaseDAO;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
+
+// import com.git.util.*;
 
 @Repository("topicDAO")
 public class TopicDAOImpl extends BaseDAO<Topic> implements TopicDAO
@@ -72,15 +74,15 @@ public class TopicDAOImpl extends BaseDAO<Topic> implements TopicDAO
 		return retrieveObjs(queryString,params);
 	}
 
-	public	Topic	searchTopic(String queryString, Map<String, Object> params){
+	public Topic searchTopic(String queryString, Map<String, Object> params){
 		return retrieveObj(queryString,params);
     }
 
-    public	Topic	searchTopic(String queryString){
+    public Topic searchTopic(String queryString){
 		return retrieveObj(queryString);
     }
 
-    public	Topic	searchTopic(String queryString, String key, Object value){
+    public Topic searchTopic(String queryString, String key, Object value){
 		return retrieveObj(queryString,key,value);
     }
 

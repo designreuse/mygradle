@@ -29,6 +29,14 @@
                 <tr/>
 
                 <tr>
+                    <td align="right">description</td>
+                    <td>
+                        <input type="text" name="description" size="50" value="<s:property value='board.description' />"
+                               class="inpMain">
+                    </td>
+                <tr/>
+
+                <tr>
                     <td align="right">topicCount</td>
                     <td>
                         <input type="text" name="topicCount" size="50" value="<s:property value='board.topicCount' />"

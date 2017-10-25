@@ -10,7 +10,7 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Service("boardService")
-public class  BoardServiceImpl implements BoardService {
+public class BoardServiceImpl implements BoardService {
 
     private String list_all_desc = "from Board bean order by bean.id desc";
     private String list_all_asc = "from Board bean order by bean.id asc";

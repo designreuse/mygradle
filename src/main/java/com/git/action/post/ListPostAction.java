@@ -1,8 +1,8 @@
 package com.git.action.post;
 
-import com.cagf.tool.util.*;
 import com.git.bean.Post;
 import com.git.service.PostService;
+import com.git.util.Page;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.ServletActionContext;
 

@@ -10,6 +10,7 @@
         </id>
 
         <property name="name" type="java.lang.String" column="name_" ></property>
+        <property name="description" type="java.lang.String" column="description_" ></property>
         <property name="topicCount" type="java.lang.Long" column="topicCount_" ></property>
 
         <property name="postCount" type="java.lang.Long" column="postCount_" ></property>

@@ -221,5 +221,74 @@
         </action>
     </package>
 
+    <package name="Board" namespace="/oa/Board" extends="struts-default">
+        <action name="addBoard" class="com.git.action.board.AddBoardAction">
+            <result name="actionName">listBoard</result>
+        </action>
+        <action name="listBoard" class="com.git.action.board.ListBoardAction">
+            <result name="success">listBoard.jsp</result>
+        </action>
+        <action name="deleteBoard" class="com.git.action.board.DeleteBoardAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">listBoard</param>
+                <param name="start">${start}</param>
+                <param name="range">${range}</param>
+            </result>
+        </action>
+        <action name="updatepBoard" class="com.git.action.board.UpdatepBoardAction">
+            <result name="success">updateBoard.jsp</result>
+        </action>
+        <action name="updateBoard" class="com.git.action.board.UpdateBoardAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">listBoard</param>
+            </result>
+        </action>
+    </package>
+    <package name="Post" namespace="/oa/Post" extends="struts-default">
+        <action name="addPost" class="com.git.action.post.AddPostAction">
+            <result name="actionName">listPost</result>
+        </action>
+        <action name="listPost" class="com.git.action.post.ListPostAction">
+            <result name="success">listPost.jsp</result>
+        </action>
+        <action name="deletePost" class="com.git.action.post.DeletePostAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">listPost</param>
+                <param name="start">${start}</param>
+                <param name="range">${range}</param>
+            </result>
+        </action>
+        <action name="updatepPost" class="com.git.action.post.UpdatepPostAction">
+            <result name="success">updatePost.jsp</result>
+        </action>
+        <action name="updatePost" class="com.git.action.post.UpdatePostAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">listPost</param>
+            </result>
+        </action>
+    </package>
+    <package name="Topic" namespace="/oa/Topic" extends="struts-default">
+        <action name="addTopic" class="com.git.action.topic.AddTopicAction">
+            <result name="actionName">listTopic</result>
+        </action>
+        <action name="listTopic" class="com.git.action.topic.ListTopicAction">
+            <result name="success">listTopic.jsp</result>
+        </action>
+        <action name="deleteTopic" class="com.git.action.topic.DeleteTopicAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">listTopic</param>
+                <param name="start">${start}</param>
+                <param name="range">${range}</param>
+            </result>
+        </action>
+        <action name="updatepTopic" class="com.git.action.topic.UpdatepTopicAction">
+            <result name="success">updateTopic.jsp</result>
+        </action>
+        <action name="updateTopic" class="com.git.action.topic.UpdateTopicAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">listTopic</param>
+            </result>
+        </action>
+    </package>
 
 </struts>

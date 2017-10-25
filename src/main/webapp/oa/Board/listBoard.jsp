@@ -34,6 +34,8 @@
                         <th width="40" align="center">编号</th>
                         <th width="80" align="center">name</th>
 
+                        <th width="80" align="center">description</th>
+
                         <th width="80" align="center">topicCount</th>
 
                         <th width="80" align="center">postCount</th>
@@ -49,6 +51,8 @@
                             <td align="center"><input type="checkbox" name="checkbox[]" value="<s:property value="id" />"/></td>
                             <td align="center">${vs.count}</td>
                              <td align="center"><s:property value="name" /></td>
+
+                            <td align="center"><s:property value="description" /></td>
 
                             <td align="center"><s:property value="topicCount" /></td>
 

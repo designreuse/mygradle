@@ -10,8 +10,9 @@
     <div id="menu">
 
         <ul>
-            <li><a href="${pageContext.request.contextPath}/oa/catelog_list.action?type=1&parentId=-1"><i class="productCat"></i><em>文档管理</em></a></li>
-            <li class="cur"><a href="${pageContext.request.contextPath}/oa/user_list"><i class="product"></i><em>用户列表</em></a></li>
+            <li><a href="${pageContext.request.contextPath}/oa/catelog_list.action?type=1&parentId=-1"><i class="articleCat"></i><em>文档管理</em></a></li>
+            <li class="cur"><a href="${pageContext.request.contextPath}/oa/user_list"><i class="user"></i><em>用户列表</em></a></li>
+            <li ><a href="${pageContext.request.contextPath}/oa/Board/listBoard"><i class="manager"></i><em>项目论坛</em></a></li>
         </ul>
 
     </div>

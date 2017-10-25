@@ -1,12 +1,14 @@
 package com.git.dao.impl;
 
-import com.cagf.tool.util.*;
 import com.git.bean.Post;
 import com.git.dao.PostDAO;
+import com.git.util.BaseDAO;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
+
+// import com.git.util.*;
 
 @Repository("postDAO")
 public class PostDAOImpl extends BaseDAO<Post> implements PostDAO
@@ -72,15 +74,15 @@ public class PostDAOImpl extends BaseDAO<Post> implements PostDAO
 		return retrieveObjs(queryString,params);
 	}
 
-	public	Post	searchPost(String queryString, Map<String, Object> params){
+	public Post searchPost(String queryString, Map<String, Object> params){
 		return retrieveObj(queryString,params);
     }
 
-    public	Post	searchPost(String queryString){
+    public Post searchPost(String queryString){
 		return retrieveObj(queryString);
     }
 
-    public	Post	searchPost(String queryString, String key, Object value){
+    public Post searchPost(String queryString, String key, Object value){
 		return retrieveObj(queryString,key,value);
     }
 

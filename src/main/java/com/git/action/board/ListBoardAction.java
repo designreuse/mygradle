@@ -1,8 +1,8 @@
 package com.git.action.board;
 
-import com.cagf.tool.util.*;
 import com.git.bean.Board;
 import com.git.service.BoardService;
+import com.git.util.Page;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.ServletActionContext;
 
