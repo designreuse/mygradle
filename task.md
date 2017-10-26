@@ -392,6 +392,17 @@ type    普通用户 还是管理员
  
  
  
+CREATE TABLE `board`(
+   `id` INT UNSIGNED AUTO_INCREMENT,
+  	name_ varchar(255) null,
+	topicCount_ int(10) unsigned null,
+	postCount_ int(10) unsigned null,
+	description_ varchar(300) null,
+   PRIMARY KEY ( `id` )
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
  
  
-      
+      jdbc.url = jdbc:mysql://45.76.97.203:3306/oa?useUnicode=true&characterEncoding=UTF-8
+      jdbc.driver = com.mysql.jdbc.Driver
+      jdbc.username= root
+      jdbc.password=lihao123

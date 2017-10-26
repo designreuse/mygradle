@@ -26,15 +26,15 @@
 
     <!-- 配置数据库连接池（c3p0） -->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" >
-        <!--<property name="driverClass" value="${jdbc.driver}"></property>-->
-        <!--<property name="jdbcUrl" value="${jdbc.url}"></property>-->
-        <!--<property name="user" value="${jdbc.username}"></property>-->
-        <!--<property name="password" value="${jdbc.password}"></property>-->
+        <property name="driverClass" value="${jdbc.driver}"></property>
+        <property name="jdbcUrl" value="${jdbc.url}"></property>
+        <property name="user" value="${jdbc.username}"></property>
+        <property name="password" value="${jdbc.password}"></property>
 
-        <property name="driverClass" value="${jdbc.driver-local}"></property>
-        <property name="jdbcUrl" value="${jdbc.url-local}"></property>
-        <property name="user" value="${jdbc.username-local}"></property>
-        <property name="password" value="${jdbc.password-local}"></property>
+        <!--<property name="driverClass" value="${jdbc.driver-local}"></property>-->
+        <!--<property name="jdbcUrl" value="${jdbc.url-local}"></property>-->
+        <!--<property name="user" value="${jdbc.username-local}"></property>-->
+        <!--<property name="password" value="${jdbc.password-local}"></property>-->
 
         <!--<property name="driverClass" value="${jdbc.driver-local_company}"></property>-->
         <!--<property name="jdbcUrl" value="${jdbc.url-local_company}"></property>-->
