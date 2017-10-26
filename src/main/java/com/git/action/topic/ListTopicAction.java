@@ -17,6 +17,7 @@ private TopicService topicService;
     private int start;
     private int range;
     private String pageInfo;
+    private long parentId;
 
 
     private List<Topic> list;
@@ -54,7 +55,13 @@ private TopicService topicService;
 
         }
 
+    public long getParentId() {
+        return parentId;
+    }
 
+    public void setParentId(long parentId) {
+        this.parentId = parentId;
+    }
 
     @Override
     public void validate() {
@@ -69,7 +76,7 @@ private TopicService topicService;
         }
 
 
-        long count = this.topicService.getTopicCount();
+        long count = this.topicService.getTopicCount(this.parentId);
         this.pageInfo = Page.getPage(ServletActionContext.getRequest(),"",start,range,count);
         this.list = this.topicService.listTopics(this.start,this.range);
 

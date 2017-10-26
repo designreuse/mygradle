@@ -10,6 +10,7 @@ public interface TopicService {
     public List<Topic> listTopicDesc(int start, int range);
     public List<Topic> listTopicAsc(int start, int range);
     public Long getTopicCount();
+    public long getTopicCount(Long parentId);
 
     public void saveTopic(Topic bean);
     public void updateTopic(Topic bean);

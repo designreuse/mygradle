@@ -223,7 +223,10 @@
 
     <package name="Board" namespace="/oa/Board" extends="struts-default">
         <action name="addBoard" class="com.git.action.board.AddBoardAction">
-            <result name="actionName">listBoard</result>
+            <result name="success" type="redirectAction">
+                <param name="actionName">listBoard</param>
+            </result>
+
         </action>
         <action name="listBoard" class="com.git.action.board.ListBoardAction">
             <result name="success">listBoard.jsp</result>
@@ -246,7 +249,9 @@
     </package>
     <package name="Post" namespace="/oa/Post" extends="struts-default">
         <action name="addPost" class="com.git.action.post.AddPostAction">
-            <result name="actionName">listPost</result>
+            <result name="success" type="redirectAction">
+                <param name="actionName">listPost</param>
+            </result>
         </action>
         <action name="listPost" class="com.git.action.post.ListPostAction">
             <result name="success">listPost.jsp</result>
@@ -269,7 +274,9 @@
     </package>
     <package name="Topic" namespace="/oa/Topic" extends="struts-default">
         <action name="addTopic" class="com.git.action.topic.AddTopicAction">
-            <result name="actionName">listTopic</result>
+            <result name="success" type="redirectAction">
+                <param name="actionName">listTopic</param>
+            </result>
         </action>
         <action name="listTopic" class="com.git.action.topic.ListTopicAction">
             <result name="success">listTopic.jsp</result>

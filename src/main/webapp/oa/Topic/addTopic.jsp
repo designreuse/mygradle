@@ -14,89 +14,28 @@
     <!-- 当前位置 -->
     <div id="urHere">DouPHP 管理中心<b>></b><strong>添加分类</strong></div>
     <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
-        <h3><a href="product_category.php" class="actionBtn">文档分类</a>添加分类</h3>
+        <h3>添加分类</h3>
         <form action="${pageContext.request.contextPath}/oa/Topic/addTopic" method="post" id="forms">
             <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
 
 
 
                 <tr>
-                    <td align="right">title</td>
+                    <td align="right" >主题</td>
                     <td>
-                        <input type="text" name="title" size="50" class="inpMain">
+                        <input type="text" name="title" size="100" class="inpMain">
                     </td>
                 </tr>
 
                 <tr>
-                    <td align="right">content</td>
+                    <td align="right">帖子内容</td>
                     <td>
-                        <input type="text" name="content" size="50" class="inpMain">
+                        <!-- /KindEditor -->
+                        <textarea id="content" name="content" style="width:780px;height:400px;" class="textArea"></textarea>
+
+
                     </td>
                 </tr>
-
-                <tr>
-                    <td align="right">authorId</td>
-                    <td>
-                        <input type="text" name="authorId" size="50" class="inpMain">
-                    </td>
-                </tr>
-
-                <tr>
-                    <td align="right">authorName</td>
-                    <td>
-                        <input type="text" name="authorName" size="50" class="inpMain">
-                    </td>
-                </tr>
-
-                <tr>
-                    <td align="right">date</td>
-                    <td>
-                        <input type="text" name="date" size="50" class="inpMain">
-                    </td>
-                </tr>
-
-                <tr>
-                    <td align="right">viewCount</td>
-                    <td>
-                        <input type="text" name="viewCount" size="50" class="inpMain">
-                    </td>
-                </tr>
-
-                <tr>
-                    <td align="right">postCount</td>
-                    <td>
-                        <input type="text" name="postCount" size="50" class="inpMain">
-                    </td>
-                </tr>
-
-                <tr>
-                    <td align="right">lastDate</td>
-                    <td>
-                        <input type="text" name="lastDate" size="50" class="inpMain">
-                    </td>
-                </tr>
-
-                <tr>
-                    <td align="right">lastAuthor</td>
-                    <td>
-                        <input type="text" name="lastAuthor" size="50" class="inpMain">
-                    </td>
-                </tr>
-
-                <tr>
-                    <td align="right">children</td>
-                    <td>
-                        <input type="text" name="children" size="50" class="inpMain">
-                    </td>
-                </tr>
-
-                <tr>
-                    <td align="right">parent</td>
-                    <td>
-                        <input type="text" name="parent" size="50" class="inpMain">
-                    </td>
-                </tr>
-
 
 
 
@@ -119,3 +58,32 @@
 
 
 <jsp:include page="/footer.jsp"></jsp:include>
+
+<!-- KindEditor -->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/js/kindeditor/themes/default/default.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/js/kindeditor/plugins/code/prettify.css" />
+<script charset="utf-8" src="${pageContext.request.contextPath}/js/kindeditor/kindeditor.js"></script>
+<script charset="utf-8" src="${pageContext.request.contextPath}/js/kindeditor/lang/zh_CN.js"></script>
+<script charset="utf-8" src="${pageContext.request.contextPath}/js/kindeditor/plugins/code/prettify.js"></script>
+<script>
+    KindEditor.ready(function(K) {
+        var editor1 = K.create('textarea[name="content"]', {
+            cssPath : '${pageContext.request.contextPath}/js/plugins/code/prettify.css',
+            uploadJson : '${pageContext.request.contextPath}/js/php/upload_json.php',
+            fileManagerJson : '${pageContext.request.contextPath}/js/php/file_manager_json.php',
+            allowFileManager : true,
+            afterCreate : function() {
+                var self = this;
+                K.ctrl(document, 13, function() {
+                    self.sync();
+                    K('form[name=example]')[0].submit();
+                });
+                K.ctrl(self.edit.doc, 13, function() {
+                    self.sync();
+                    K('form[name=example]')[0].submit();
+                });
+            }
+        });
+        prettyPrint();
+    });
+</script>

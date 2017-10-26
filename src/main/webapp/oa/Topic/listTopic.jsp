@@ -12,7 +12,7 @@
     <!-- 当前位置 -->
     <div id="urHere">DouPHP 管理中心<b>></b><strong>添加分类</strong></div>
     <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
-        <h3><a href="${pageContext.request.contextPath}/oa/Topic/addTopic.jsp" class="actionBtn">添加Topic</a>Topic</h3>
+        <h3><a href="${pageContext.request.contextPath}/oa/Topic/addTopic.jsp?parentId=${param.parentId}" class="actionBtn">添加帖子</a>帖子</h3>
         <div class="filter">
             <form action="product.php" method="post">
                 <select name="cat_id">
@@ -32,27 +32,20 @@
                         <th width="22" align="center"><input name='chkall' type='checkbox' id='chkall'
                                                              onclick='selectcheckbox(this.form)' value='check'></th>
                         <th width="40" align="center">编号</th>
-                        <th width="80" align="center">title</th>
+                        <th width="80" align="center">主题</th>
 
-                        <th width="80" align="center">content</th>
+                        <th width="80" align="center">用户</th>
 
-                        <th width="80" align="center">authorId</th>
+                        <th width="80" align="center">发帖时间</th>
 
-                        <th width="80" align="center">authorName</th>
+                        <th width="80" align="center">浏览数</th>
 
-                        <th width="80" align="center">date</th>
+                        <th width="80" align="center">回帖数</th>
 
-                        <th width="80" align="center">viewCount</th>
+                        <th width="80" align="center">最后评论数</th>
 
-                        <th width="80" align="center">postCount</th>
+                        <th width="80" align="center">最后回复人</th>
 
-                        <th width="80" align="center">lastDate</th>
-
-                        <th width="80" align="center">lastAuthor</th>
-
-                        <th width="80" align="center">children</th>
-
-                        <th width="80" align="center">parent</th>
 
 
                         <th width="80" align="center">操作</th>
@@ -62,11 +55,9 @@
                         <tr>
                             <td align="center"><input type="checkbox" name="checkbox[]" value="<s:property value="id" />"/></td>
                             <td align="center">${vs.count}</td>
-                             <td align="center"><s:property value="title" /></td>
+                             <td align="center"><s:property value="主题" /></td>
 
-                            <td align="center"><s:property value="content" /></td>
 
-                            <td align="center"><s:property value="authorId" /></td>
 
                             <td align="center"><s:property value="authorName" /></td>
 
@@ -80,9 +71,6 @@
 
                             <td align="center"><s:property value="lastAuthor" /></td>
 
-                            <td align="center"><s:property value="children" /></td>
-
-                            <td align="center"><s:property value="parent" /></td>
 
 
                             <td align="center">
